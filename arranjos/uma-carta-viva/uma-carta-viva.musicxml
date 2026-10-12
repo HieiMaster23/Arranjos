@@ -68,39 +68,39 @@
     <part-group type="start" number="4"><group-symbol>bracket</group-symbol><group-barline>yes</group-barline></part-group>
     <score-part id="P13"><part-name>Shaker</part-name><part-abbreviation>Shk.</part-abbreviation>
       <score-instrument id="P13-I1"><instrument-name>Shaker</instrument-name><instrument-sound>rattle.shaker</instrument-sound></score-instrument>
-      <midi-instrument id="P13-I1"><midi-channel>10</midi-channel><midi-program>1</midi-program><midi-unpitched>71</midi-unpitched></midi-instrument>
+      <midi-instrument id="P13-I1"><midi-channel>10</midi-channel><midi-program>1</midi-program><midi-unpitched>70</midi-unpitched></midi-instrument>
     </score-part>
     <score-part id="P14"><part-name>Pandeirola</part-name><part-abbreviation>Pand.</part-abbreviation>
       <score-instrument id="P14-I1"><instrument-name>Pandeirola</instrument-name><instrument-sound>drum.tambourine</instrument-sound></score-instrument>
-      <midi-instrument id="P14-I1"><midi-channel>10</midi-channel><midi-program>1</midi-program><midi-unpitched>55</midi-unpitched></midi-instrument>
+      <midi-instrument id="P14-I1"><midi-channel>10</midi-channel><midi-program>1</midi-program><midi-unpitched>54</midi-unpitched></midi-instrument>
     </score-part>
     <score-part id="P15"><part-name>Prato suspenso</part-name><part-abbreviation>Pr. susp.</part-abbreviation>
       <score-instrument id="P15-I1"><instrument-name>Prato suspenso</instrument-name><instrument-sound>metal.cymbal.suspended</instrument-sound></score-instrument>
-      <midi-instrument id="P15-I1"><midi-channel>10</midi-channel><midi-program>1</midi-program><midi-unpitched>50</midi-unpitched></midi-instrument>
+      <midi-instrument id="P15-I1"><midi-channel>10</midi-channel><midi-program>1</midi-program><midi-unpitched>49</midi-unpitched></midi-instrument>
     </score-part>
     <score-part id="P16"><part-name>Bateria</part-name><part-abbreviation>Bat.</part-abbreviation>
-      <score-instrument id="P16-kick"><instrument-name>Acoustic Bass Drum</instrument-name><instrument-sound>drum.group.set</instrument-sound></score-instrument>
-      <score-instrument id="P16-snare"><instrument-name>Acoustic Snare</instrument-name><instrument-sound>drum.group.set</instrument-sound></score-instrument>
-      <score-instrument id="P16-xstick"><instrument-name>Side Stick</instrument-name><instrument-sound>drum.group.set</instrument-sound></score-instrument>
-      <score-instrument id="P16-tom1"><instrument-name>High Tom</instrument-name><instrument-sound>drum.group.set</instrument-sound></score-instrument>
-      <score-instrument id="P16-tom2"><instrument-name>Low-Mid Tom</instrument-name><instrument-sound>drum.group.set</instrument-sound></score-instrument>
-      <score-instrument id="P16-ftom"><instrument-name>High Floor Tom</instrument-name><instrument-sound>drum.group.set</instrument-sound></score-instrument>
-      <score-instrument id="P16-hh"><instrument-name>Closed Hi-Hat</instrument-name><instrument-sound>drum.group.set</instrument-sound></score-instrument>
-      <score-instrument id="P16-hhopen"><instrument-name>Open Hi-Hat</instrument-name><instrument-sound>drum.group.set</instrument-sound></score-instrument>
-      <score-instrument id="P16-hhfoot"><instrument-name>Pedal Hi-Hat</instrument-name><instrument-sound>drum.group.set</instrument-sound></score-instrument>
-      <score-instrument id="P16-ride"><instrument-name>Ride Cymbal 1</instrument-name><instrument-sound>drum.group.set</instrument-sound></score-instrument>
-      <score-instrument id="P16-crash"><instrument-name>Crash Cymbal 1</instrument-name><instrument-sound>drum.group.set</instrument-sound></score-instrument>
-      <midi-instrument id="P16-kick"><midi-channel>10</midi-channel><midi-program>1</midi-program><midi-unpitched>37</midi-unpitched></midi-instrument>
-      <midi-instrument id="P16-snare"><midi-channel>10</midi-channel><midi-program>1</midi-program><midi-unpitched>39</midi-unpitched></midi-instrument>
-      <midi-instrument id="P16-xstick"><midi-channel>10</midi-channel><midi-program>1</midi-program><midi-unpitched>38</midi-unpitched></midi-instrument>
-      <midi-instrument id="P16-tom1"><midi-channel>10</midi-channel><midi-program>1</midi-program><midi-unpitched>51</midi-unpitched></midi-instrument>
-      <midi-instrument id="P16-tom2"><midi-channel>10</midi-channel><midi-program>1</midi-program><midi-unpitched>48</midi-unpitched></midi-instrument>
-      <midi-instrument id="P16-ftom"><midi-channel>10</midi-channel><midi-program>1</midi-program><midi-unpitched>44</midi-unpitched></midi-instrument>
-      <midi-instrument id="P16-hh"><midi-channel>10</midi-channel><midi-program>1</midi-program><midi-unpitched>43</midi-unpitched></midi-instrument>
-      <midi-instrument id="P16-hhopen"><midi-channel>10</midi-channel><midi-program>1</midi-program><midi-unpitched>47</midi-unpitched></midi-instrument>
-      <midi-instrument id="P16-hhfoot"><midi-channel>10</midi-channel><midi-program>1</midi-program><midi-unpitched>45</midi-unpitched></midi-instrument>
-      <midi-instrument id="P16-ride"><midi-channel>10</midi-channel><midi-program>1</midi-program><midi-unpitched>52</midi-unpitched></midi-instrument>
-      <midi-instrument id="P16-crash"><midi-channel>10</midi-channel><midi-program>1</midi-program><midi-unpitched>50</midi-unpitched></midi-instrument>
+      <score-instrument id="P16-kick"><instrument-name>Kick drum</instrument-name><instrument-sound>drum.group.set</instrument-sound></score-instrument>
+      <score-instrument id="P16-snare"><instrument-name>Snare</instrument-name><instrument-sound>drum.group.set</instrument-sound></score-instrument>
+      <score-instrument id="P16-xstick"><instrument-name>Side stick</instrument-name><instrument-sound>drum.group.set</instrument-sound></score-instrument>
+      <score-instrument id="P16-tom1"><instrument-name>Tom-tom (high)</instrument-name><instrument-sound>drum.group.set</instrument-sound></score-instrument>
+      <score-instrument id="P16-tom2"><instrument-name>Tom-tom (medium)</instrument-name><instrument-sound>drum.group.set</instrument-sound></score-instrument>
+      <score-instrument id="P16-ftom"><instrument-name>Tom-tom (low)</instrument-name><instrument-sound>drum.group.set</instrument-sound></score-instrument>
+      <score-instrument id="P16-hh"><instrument-name>Hi-hat (closed)</instrument-name><instrument-sound>drum.group.set</instrument-sound></score-instrument>
+      <score-instrument id="P16-hhopen"><instrument-name>Hi-hat (open)</instrument-name><instrument-sound>drum.group.set</instrument-sound></score-instrument>
+      <score-instrument id="P16-hhfoot"><instrument-name>Hi-hat (pedal)</instrument-name><instrument-sound>drum.group.set</instrument-sound></score-instrument>
+      <score-instrument id="P16-ride"><instrument-name>Ride cymbal</instrument-name><instrument-sound>drum.group.set</instrument-sound></score-instrument>
+      <score-instrument id="P16-crash"><instrument-name>Crash Cymbal</instrument-name><instrument-sound>drum.group.set</instrument-sound></score-instrument>
+      <midi-instrument id="P16-kick"><midi-channel>10</midi-channel><midi-program>1</midi-program><midi-unpitched>36</midi-unpitched></midi-instrument>
+      <midi-instrument id="P16-snare"><midi-channel>10</midi-channel><midi-program>1</midi-program><midi-unpitched>38</midi-unpitched></midi-instrument>
+      <midi-instrument id="P16-xstick"><midi-channel>10</midi-channel><midi-program>1</midi-program><midi-unpitched>37</midi-unpitched></midi-instrument>
+      <midi-instrument id="P16-tom1"><midi-channel>10</midi-channel><midi-program>1</midi-program><midi-unpitched>50</midi-unpitched></midi-instrument>
+      <midi-instrument id="P16-tom2"><midi-channel>10</midi-channel><midi-program>1</midi-program><midi-unpitched>47</midi-unpitched></midi-instrument>
+      <midi-instrument id="P16-ftom"><midi-channel>10</midi-channel><midi-program>1</midi-program><midi-unpitched>43</midi-unpitched></midi-instrument>
+      <midi-instrument id="P16-hh"><midi-channel>10</midi-channel><midi-program>1</midi-program><midi-unpitched>42</midi-unpitched></midi-instrument>
+      <midi-instrument id="P16-hhopen"><midi-channel>10</midi-channel><midi-program>1</midi-program><midi-unpitched>46</midi-unpitched></midi-instrument>
+      <midi-instrument id="P16-hhfoot"><midi-channel>10</midi-channel><midi-program>1</midi-program><midi-unpitched>44</midi-unpitched></midi-instrument>
+      <midi-instrument id="P16-ride"><midi-channel>10</midi-channel><midi-program>1</midi-program><midi-unpitched>51</midi-unpitched></midi-instrument>
+      <midi-instrument id="P16-crash"><midi-channel>10</midi-channel><midi-program>1</midi-program><midi-unpitched>49</midi-unpitched></midi-instrument>
     </score-part>
     <part-group type="stop" number="4"/>
     <part-group type="start" number="5"><group-symbol>bracket</group-symbol><group-barline>yes</group-barline></part-group>

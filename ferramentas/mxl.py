@@ -39,11 +39,11 @@ DRUM_MAP = {
     "linex": ("E", 4, "x", "up"),
 }
 # nome do instrumento e nota MIDI General MIDI de cada peça do kit
-KIT = {
-    "kick": ("Acoustic Bass Drum", 36), "snare": ("Acoustic Snare", 38), "xstick": ("Side Stick", 37),
-    "tom1": ("High Tom", 50), "tom2": ("Low-Mid Tom", 47), "ftom": ("High Floor Tom", 43),
-    "hh": ("Closed Hi-Hat", 42), "hhopen": ("Open Hi-Hat", 46), "hhfoot": ("Pedal Hi-Hat", 44),
-    "ride": ("Ride Cymbal 1", 51), "crash": ("Crash Cymbal 1", 49),
+KIT = {  # notas = mapa "Drum Set (Sticks, Rock)" do NotePerformer 5 (= General MIDI)
+    "kick": ("Kick drum", 36), "snare": ("Snare", 38), "xstick": ("Side stick", 37),
+    "tom1": ("Tom-tom (high)", 50), "tom2": ("Tom-tom (medium)", 47), "ftom": ("Tom-tom (low)", 43),
+    "hh": ("Hi-hat (closed)", 42), "hhopen": ("Hi-hat (open)", 46), "hhfoot": ("Hi-hat (pedal)", 44),
+    "ride": ("Ride cymbal", 51), "crash": ("Crash Cymbal", 49),
 }
 
 
@@ -225,11 +225,11 @@ class Score:
                                f'<instrument-sound>drum.group.set</instrument-sound></score-instrument>')
                 # drum_midi: "spec" = nota GM + 1 (como diz a especificação MusicXML),
                 #            "gm" = nota GM exata, "none" = sem nota MIDI (só posição na pauta)
-                mode = getattr(p, "drum_midi", "spec")
+                mode = getattr(p, "drum_midi", "gm")
                 for k, (nm, key) in KIT.items():
                     if mode == "none":
                         continue
-                    val = key + 1 if mode == "spec" else key
+                    val = key + 1 if mode == "spec" else key  # Sibelius/NotePerformer: nota exata
                     out.append(f'      <midi-instrument id="{pid}-{k}"><midi-channel>10</midi-channel>'
                                f'<midi-program>1</midi-program><midi-unpitched>{val}</midi-unpitched></midi-instrument>')
             else:
@@ -238,7 +238,7 @@ class Score:
                            f'{snd}</score-instrument>')
                 if p.percussion:
                     out.append(f'      <midi-instrument id="{pid}-I1"><midi-channel>10</midi-channel>'
-                               f'<midi-program>1</midi-program><midi-unpitched>{p.gm_key + 1}</midi-unpitched></midi-instrument>')
+                               f'<midi-program>1</midi-program><midi-unpitched>{p.gm_key}</midi-unpitched></midi-instrument>')
                 else:
                     ch = (i % 15) + 1
                     ch = ch + 1 if ch >= 10 else ch
