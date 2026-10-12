@@ -1,6 +1,8 @@
 # Uma Carta Viva (GET Worship): versão instrumental "Camp Inspired"
 
-Status: **estrutura em definição (falta a Ponte e o Final)**
+Status: **grade escrita até o Refrão 2 (c. 1–75)**. Falta a Ponte e o Final.
+
+Arquivos: `uma-carta-viva.musicxml` (MusicXML 3.1, abrir no Sibelius) · `previa-verovio.pdf` (prévia rápida, sem a gravação do Sibelius) · `gerar_partitura.py` (gera a grade: `python3 gerar_partitura.py`)
 Referência de estilo: `docs/estilo-orquestracao.md`
 Fonte: orquestração sinfônica fornecida (MusicXML, 73 c.)
 
@@ -77,6 +79,24 @@ F \| F \| Gm7 \| Gm7 \| Dm7 – Dm7/C \| C – F/A \| Bb(add9) \| Bb – C/Bb
 ### Tessitura da melodia
 - Em Eb: Bb3 a Eb5 (concerto).
 - Em F: C4 a F5 (concerto), Tpt 1 escrito Ré4 a Sol5. Confortável para lead com bloco abaixo.
+
+## 3b. Bateria: pop 6/8 "quadrado" e constante
+
+A ideia é a mesma dos arranjos do Camp: um groove reto, que não muda de caráter. Em cada
+seção só muda a "cor" (aro, caixa, ride), e há fills curtos no fim das seções.
+
+| Seção | Mãos | Pés |
+|---|---|---|
+| Intro / Refrão 1 / Pré 2 (c. 55–58) | Chimbal em colcheias + **caixa no 4** (acentuada) | Bumbo no **1, 3 e 6** |
+| Vamp | Só chimbal | Bumbo no 1 |
+| Estrofe / Pré 1 (início) | Chimbal + **aro (cross-stick) no 4** | Bumbo no **1 e 3** |
+| Pré 1 (c. 23+) / Interlúdio / Pré 2 | Chimbal + **caixa no 4** | Bumbo no 1 e 3 |
+| Refrão 2 | **Ride** em colcheias + caixa no 4 | Bumbo no 1, 3 e 6 |
+
+- Prato de ataque (crash) a cada 4 compassos nos refrões.
+- Fills de meio compasso (semicolcheias caixa/tons) nos c. 8, 18, 26, 34, 42, 50, 58, 67 e 75.
+- A percussão acompanha por seção: shaker (verso/interlúdio), pandeirola (refrões/Pré 2) e
+  prato suspenso em swell antes das chegadas.
 
 ## 4. Instrumentação (formato Camp padrão)
 
