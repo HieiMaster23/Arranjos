@@ -1,6 +1,6 @@
 # Uma Carta Viva (GET Worship): versão instrumental "Camp Inspired"
 
-Status: **proposta de estrutura (rascunho para aprovação)**
+Status: **estrutura em definição (falta a Ponte e o Final)**
 Referência de estilo: `docs/estilo-orquestracao.md`
 Fonte: orquestração sinfônica fornecida (MusicXML, 73 c.)
 
@@ -41,25 +41,42 @@ dos interlúdios.
 - Todo o material novo (motivo da intro, fills, contracantos, transições) é **original** e
   sai das células da própria canção.
 
-## 3. Estrutura proposta (≈ 85 c., ~3'15" a ♩.=54)
+## 3. Estrutura proposta (decisões de 12/10/2026)
+
+**Decisões:** começa em **Mi♭** e modula para **Fá** no Refrão 2 · **♩. = 60** ·
+formação Camp padrão + substituições · **Ponte**: o usuário ainda vai mandar a melodia e a
+harmonia · **Final**: definir depois da Ponte.
+
+A ♩.=60 cada compasso de 6/8 dura 2 s.
 
 | # | Seção | Comp. | Tom | Melodia com… | Textura / função | Din. |
 |---|---|---|---|---|---|---|
-| 1 | **Intro** | 8 | D | Motivo-assinatura criado a partir da cabeça do refrão: **Tpt 1 + A.Sax 1** em bloco com Tpt 2&3; **Tbns** respondem | Tutti sobre o baixo subindo D–Em7–D/F#–G; madeiras 8va; cordas pad; últimos 2 c. em decresc. | **f** → mf |
-| 2 | **Vamp** | 2 | D | — | Redução súbita: piano + ostinato em colcheias de 6/8 (Clarinetes), shaker, baixo | *subito* mp |
-| 3 | **Estrofe** | 8 | D | **A.Sax 1 solo** (frase 1) e **T.Sax solo** (frase 2) | Cordas em pad, Fl/Cl com ecos curtos nas respostas, Tpts tacet | mp |
-| 4 | **Pré-refrão 1** | 8 | D | **Tbn 1 solo** cantabile (Trompas em pad) | Gm6 destacado (cor escura: Tbns + Trompas); baixo sobe; prato suspenso em swell no último c. | mp → mf |
-| 5 | **Refrão 1** | 16 | D | c. 1–8: **Tpt 1 + A.Sax 1** em uníssono, com respostas de Tbns. c. 9–16: **soli de Saxes** harmonizado (A1, A2, T, Bari) | Entra a bateria plena; cordas em pad e hits; Trompas no contracanto médio; fills de Tpt nos respiros | mf |
-| 6 | **Interlúdio** | 8 | D | Retorno do motivo da Intro (reduzido); o "Oh" da fonte vira **Tbns + Trompas soli** em notas longas | Cordas com run de lançamento no fim; baixo D–E–F#–G | mf → mp |
-| 7 | **Pré-refrão 2** | 8 + 1 | D → | **T.Sax + Tbn 1 em oitavas**; ostinato nas Clarinetes; *grad. cresc.* | **+1 c. de transição** (dominante da nova tonalidade): fill de bateria, run de cordas, swell de prato, baixo subindo | mf → **f** |
-| 8 | **Refrão 2** | 16 | **Eb** | **Bloco de trompetes** (Tpt 1 lead, Tpt 2&3 fechados) + **Tbn 1&2 8vb**; madeiras 8va | Contracanto de Trompas + A.Sax; cordas em pad agudo + runs; pandeirola; tutti | **ff** |
-| 9 | **Tag** | 4 + 4 | Eb | Últimos 4 c. do refrão 2×; na 2ª vez, melodia nos **Trombones + T.Sax** e Tpts em notas longas agudas | Cadência com empréstimo **bVI–bVII–I** (Cb–Db–Eb) no lugar do final suspenso da fonte | ff → *molto rit.* |
-| 10 | **Final** | 2 | Eb | — | Acorde longo **Eb(add9)** em fermata, prato suspenso + mark tree; ou *stinger* curto | ff (fermata) |
+| 1 | **Intro** | 8 | Eb | Motivo-assinatura criado a partir da cabeça do refrão: **Tpt 1 + A.Sax 1** em bloco com Tpt 2&3; **Tbns** respondem | Tutti sobre o baixo subindo Eb–Fm7–Eb/G–Ab; madeiras 8va; cordas pad; últimos 2 c. em decresc. | **f** → mf |
+| 2 | **Vamp** | 2 | Eb | — | Redução súbita: piano + ostinato em colcheias de 6/8 (Clarinetes), shaker, baixo | *subito* mp |
+| 3 | **Estrofe** | 8 | Eb | **A.Sax 1 solo** (frase 1) e **T.Sax solo** (frase 2) | Cordas em pad, Fl/Cl com ecos curtos nas respostas, Tpts tacet | mp |
+| 4 | **Pré-refrão 1** | 8 | Eb | **Tbn 1 solo** cantabile (Trompas em pad) | Abm6 destacado (Tbns + Trompas); baixo sobe; prato suspenso em swell no último c. | mp → mf |
+| 5 | **Refrão 1** | 16 | Eb | c. 1–8: **Tpt 1 + A.Sax 1** em uníssono, com respostas de Tbns. c. 9–16: **soli de Saxes** (A1, A2, T, Bari) | Bateria plena; cordas em pad e hits; Trompas no contracanto médio; fills de Tpt nos respiros | mf |
+| 6 | **Interlúdio** | 8 | Eb | Retorno do motivo da Intro (reduzido); o "Oh" da fonte vira **Tbns + Trompas soli** em notas longas | Run de cordas no fim; baixo Eb–F–G–Ab | mf → mp |
+| 7 | **Pré-refrão 2** | 8 + 1 | Eb → | **T.Sax + Tbn 1 em oitavas**; ostinato nas Clarinetes; *grad. cresc.* | **+1 c. de transição em C7sus4 → C7** (V de Fá): fill de bateria, run de cordas, swell de prato, baixo subindo | mf → **f** |
+| 8 | **Refrão 2** | 16 | **F** | **Bloco de trompetes** (Tpt 1 lead, Tpt 2&3 fechados) + **Tbn 1&2 8vb**; madeiras 8va | Contracanto de Trompas + A.Sax; cordas em pad agudo + runs; pandeirola; tutti | **ff** |
+| 9 | **Ponte** | ? | F | *aguardando melodia/harmonia* | Ideia: redução (cordas + piano + soli de Tbns), com crescimento até o retorno | ? |
+| 10 | **Refrão final / Tag / Final** | ? | F (ou nova subida) | *definir depois da Ponte* | Opções: Tag com bVI–bVII–I + fermata add9 · stinger · final suave | — |
 
-### Plano de tonalidades
-- **D** (Intro até o Pré 2) → **Eb** (Refrão 2, Tag e Final): meio tom acima, preparado por Bb7sus4 → Bb7.
-  - Para os sopros fica confortável: Tpt/Cl/T.Sax em Fá, A.Sax/Bari em Dó, Trompa em Sib.
-  - Alternativas: Ré → Mi (1 tom, padrão Camp, mas sopros em 6♯) ou começar em Db/Eb.
+### Harmonia transposta (Eb, seções 1–7)
+
+| Seção | Harmonia |
+|---|---|
+| Intro / Interlúdio | Eb \| Eb \| Eb \| Fm7 \| Fm7 \| Eb/G \| Eb/G \| Ab(add9) \| Ab |
+| Estrofe | Bb/D – Ab/C \| Eb – Fm7 \| Eb/G \| Eb \| Bb/D – Ab/C \| Cm/G – Fm7 \| Eb \| Eb – Eb/G |
+| Pré-refrão | Fm7 \| Fm7 \| Eb/G \| Eb/G \| Ab \| Ab \| Abm6 \| Abm6 – Bb |
+| Refrão | Eb \| Eb \| Fm7 \| Fm7 \| Cm7 – Cm7/Bb \| Bb – Eb/G \| Ab(add9) \| Ab – Bb/Ab |
+
+### Harmonia do Refrão 2 (F)
+F \| F \| Gm7 \| Gm7 \| Dm7 – Dm7/C \| C – F/A \| Bb(add9) \| Bb – C/Bb
+
+### Tessitura da melodia
+- Em Eb: Bb3 a Eb5 (concerto).
+- Em F: C4 a F5 (concerto), Tpt 1 escrito Ré4 a Sol5. Confortável para lead com bloco abaixo.
 
 ## 4. Instrumentação (formato Camp padrão)
 
