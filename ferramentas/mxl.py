@@ -223,9 +223,15 @@ class Score:
                 for k, (nm, key) in KIT.items():
                     out.append(f'      <score-instrument id="{pid}-{k}"><instrument-name>{nm}</instrument-name>'
                                f'<instrument-sound>drum.group.set</instrument-sound></score-instrument>')
+                # drum_midi: "spec" = nota GM + 1 (como diz a especificação MusicXML),
+                #            "gm" = nota GM exata, "none" = sem nota MIDI (só posição na pauta)
+                mode = getattr(p, "drum_midi", "spec")
                 for k, (nm, key) in KIT.items():
+                    if mode == "none":
+                        continue
+                    val = key + 1 if mode == "spec" else key
                     out.append(f'      <midi-instrument id="{pid}-{k}"><midi-channel>10</midi-channel>'
-                               f'<midi-program>1</midi-program><midi-unpitched>{key + 1}</midi-unpitched></midi-instrument>')
+                               f'<midi-program>1</midi-program><midi-unpitched>{val}</midi-unpitched></midi-instrument>')
             else:
                 snd = f'<instrument-sound>{p.sound_id}</instrument-sound>' if p.sound_id else ''
                 out.append(f'      <score-instrument id="{pid}-I1"><instrument-name>{escape(p.name)}</instrument-name>'

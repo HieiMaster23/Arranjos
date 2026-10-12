@@ -967,13 +967,3 @@ out = os.path.join(HERE, "uma-carta-viva.musicxml")
 sc.write(out)
 print("ok ->", out)
 
-# ------------------------------------------------------------------ arquivo de teste só com a percussão
-# Serve para testar rápido no Sibelius + NotePerformer se a bateria está tocando.
-teste = Score("Uma Carta Viva – teste de bateria", "GET Worship", "Arr. instrumental “Camp Inspired”", NBARS)
-teste.keys, teste.tempos, teste.marks, teste.barlines = sc.keys, sc.tempos, sc.marks, sc.barlines
-for inst in (SH, TA, SC, DR):
-    teste.add(inst)
-teste.group(0, 3, "bracket")
-out2 = os.path.join(HERE, "teste-bateria.musicxml")
-teste.write(out2)
-print("ok ->", out2)
