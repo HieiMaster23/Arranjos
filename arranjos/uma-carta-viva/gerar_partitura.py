@@ -510,36 +510,43 @@ sc.barlines[59] = "light-light"
 sc.barlines[NBARS] = "light-light"  # a música continua na Ponte
 
 # transposições: escrito = real + intervalo
-FL = sc.add(Instrument("Flauta 1 & 2", "Fl.", midi_program=74))
-OB = sc.add(Instrument("Oboé", "Ob.", midi_program=69))
-CL = sc.add(Instrument("Clarinete 1 & 2 (Si♭)", "Cl.", diatonic=1, chromatic=2, key_offset=2, midi_program=72))
-FG = sc.add(Instrument("Fagote / Clarone", "Fg.", clef="F", midi_program=71))
-AS = sc.add(Instrument("Sax Alto 1 & 2", "S.A.", diatonic=5, chromatic=9, key_offset=3, midi_program=66))
-TS = sc.add(Instrument("Sax Tenor", "S.T.", diatonic=8, chromatic=14, key_offset=2, midi_program=67))
-BS = sc.add(Instrument("Sax Barítono", "S.Bar.", diatonic=12, chromatic=21, key_offset=3, midi_program=68))
-T1 = sc.add(Instrument("Trompete 1 (Si♭)", "Tpt. 1", diatonic=1, chromatic=2, key_offset=2, midi_program=57))
-T23 = sc.add(Instrument("Trompete 2 & 3 (Si♭)", "Tpt. 2-3", diatonic=1, chromatic=2, key_offset=2, midi_program=57))
-HN = sc.add(Instrument("Trompa 1 & 2 (Fá)", "Tpa.", diatonic=4, chromatic=7, key_offset=1, midi_program=61))
-TB = sc.add(Instrument("Trombone 1 & 2", "Tbn. 1-2", clef="F", midi_program=58))
-TU = sc.add(Instrument("Trombone 3 / Tuba", "Tbn. 3/Tu.", clef="F", midi_program=59))
-PC = sc.add(Instrument("Percussão", "Perc.", clef="perc", percussion=True, sound="aux"))
+FL = sc.add(Instrument("Flauta 1 & 2", "Fl.", midi_program=74, sound_id="wind.flutes.flute"))
+OB = sc.add(Instrument("Oboé", "Ob.", midi_program=69, sound_id="wind.reed.oboe"))
+CL = sc.add(Instrument("Clarinete 1 & 2 (Si♭)", "Cl.", diatonic=1, chromatic=2, key_offset=2, midi_program=72, sound_id="wind.reed.clarinet"))
+FG = sc.add(Instrument("Fagote / Clarone", "Fg.", clef="F", midi_program=71, sound_id="wind.reed.bassoon"))
+AS = sc.add(Instrument("Sax Alto 1 & 2", "S.A.", diatonic=5, chromatic=9, key_offset=3, midi_program=66, sound_id="wind.reed.saxophone.alto"))
+TS = sc.add(Instrument("Sax Tenor", "S.T.", diatonic=8, chromatic=14, key_offset=2, midi_program=67, sound_id="wind.reed.saxophone.tenor"))
+BS = sc.add(Instrument("Sax Barítono", "S.Bar.", diatonic=12, chromatic=21, key_offset=3, midi_program=68, sound_id="wind.reed.saxophone.baritone"))
+T1 = sc.add(Instrument("Trompete 1 (Si♭)", "Tpt. 1", diatonic=1, chromatic=2, key_offset=2, midi_program=57, sound_id="brass.trumpet"))
+T23 = sc.add(Instrument("Trompete 2 & 3 (Si♭)", "Tpt. 2-3", diatonic=1, chromatic=2, key_offset=2, midi_program=57, sound_id="brass.trumpet"))
+HN = sc.add(Instrument("Trompa 1 & 2 (Fá)", "Tpa.", diatonic=4, chromatic=7, key_offset=1, midi_program=61, sound_id="brass.french-horn"))
+TB = sc.add(Instrument("Trombone 1 & 2", "Tbn. 1-2", clef="F", midi_program=58, sound_id="brass.trombone"))
+TU = sc.add(Instrument("Trombone 3 / Tuba", "Tbn. 3/Tu.", clef="F", midi_program=59, sound_id="brass.trombone"))
+# PC = rascunho da percussão auxiliar; no fim é dividido em 3 instrumentos de 1 linha
+PC = Instrument("Percussão", "Perc.", clef="perc", percussion=True, sound="aux")
+SH = sc.add(Instrument("Shaker", "Shk.", clef="perc", percussion=True, sound="aux", lines=1,
+                       sound_id="rattle.shaker", gm_key=70))
+TA = sc.add(Instrument("Pandeirola", "Pand.", clef="perc", percussion=True, sound="aux", lines=1,
+                       sound_id="drum.tambourine", gm_key=54))
+SC = sc.add(Instrument("Prato suspenso", "Pr. susp.", clef="perc", percussion=True, sound="aux", lines=1,
+                       sound_id="metal.cymbal.suspended", gm_key=49))
 DR = sc.add(Instrument("Bateria", "Bat.", clef="perc", percussion=True, sound="drums"))
-GT = sc.add(Instrument("Rhythm (Violão/Guitarra)", "Rhy.", midi_program=26, diatonic=0))
+GT = sc.add(Instrument("Rhythm (Violão/Guitarra)", "Rhy.", midi_program=26, diatonic=0, sound_id="pluck.guitar.acoustic"))
 GT.sound = "slash"
-PN = sc.add(Instrument("Piano", "Pno.", staves=2, clefs=["G", "F"], midi_program=1))
-BX = sc.add(Instrument("Baixo", "Bx.", clef="F", diatonic=7, chromatic=12, midi_program=34))
-V1 = sc.add(Instrument("Violino 1", "Vl. 1", midi_program=49))
-V2 = sc.add(Instrument("Violino 2", "Vl. 2", midi_program=49))
-VA = sc.add(Instrument("Viola", "Vla.", clef="C", midi_program=49))
-VC = sc.add(Instrument("Violoncelo", "Vc.", clef="F", midi_program=49))
-CB = sc.add(Instrument("Contrabaixo", "Cb.", clef="F", diatonic=7, chromatic=12, midi_program=44))
+PN = sc.add(Instrument("Piano", "Pno.", staves=2, clefs=["G", "F"], midi_program=1, sound_id="keyboard.piano"))
+BX = sc.add(Instrument("Baixo", "Bx.", clef="F", diatonic=7, chromatic=12, midi_program=34, sound_id="pluck.bass.electric"))
+V1 = sc.add(Instrument("Violino 1", "Vl. 1", midi_program=49, sound_id="strings.violin"))
+V2 = sc.add(Instrument("Violino 2", "Vl. 2", midi_program=49, sound_id="strings.violin"))
+VA = sc.add(Instrument("Viola", "Vla.", clef="C", midi_program=49, sound_id="strings.viola"))
+VC = sc.add(Instrument("Violoncelo", "Vc.", clef="F", midi_program=49, sound_id="strings.cello"))
+CB = sc.add(Instrument("Contrabaixo", "Cb.", clef="F", diatonic=7, chromatic=12, midi_program=44, sound_id="strings.contrabass"))
 
 sc.group(0, 3, "bracket")
 sc.group(4, 6, "bracket")
 sc.group(7, 11, "bracket")
-sc.group(12, 13, "bracket")
-sc.group(14, 16, "bracket")
-sc.group(17, 21, "bracket")
+sc.group(12, 15, "bracket")
+sc.group(16, 18, "bracket")
+sc.group(19, 23, "bracket")
 
 ALL = [FL, OB, CL, FG, AS, TS, BS, T1, T23, HN, TB, TU, PC, DR, GT, PN, BX, V1, V2, VA, VC, CB]
 
@@ -903,6 +910,38 @@ text(DR, 67, "Fill", off=6); text(DR, 75, "Fill → Ponte", off=6)
 dyn([FL, OB, CL, FG, AS, TS, BS, T1, T23, HN, TB, TU, PN, BX, V1, V2, VA, VC, CB, DR, PC, GT], 60, "ff")
 text(T1, 75, "→ PONTE (a definir)", off=6, bold=True)
 
+
+# ------------------------------------------------------------------ percussão auxiliar -> 3 instrumentos
+# Cada som vira um instrumento de 1 linha (o NotePerformer/Sibelius toca o som certo).
+def _target(bar, toks):
+    if "*" in toks or bar in (5,):
+        return SC
+    if "auxx" in toks:
+        return SH
+    if "aux" in toks:
+        return TA
+    return None
+
+
+for b, md in sorted(PC.measures.items()):
+    voices = md["staff"].get(1)
+    raw = " ".join(f"{'p:aux' if e.drum else 'r'}{'x' if e.drum and 'auxx' in e.drum else ''}/{e.dur}"
+                   f"{'*' if 'tremolo' in e.arts else ''}{'>' if 'accent' in e.arts else ''}"
+                   for e in voices[0]) if voices else ""
+    tgt = _target(b, raw)
+    if tgt is None:
+        continue
+    tgt.put(b, raw.replace("p:auxx", "p:line").replace("p:aux", "p:line"))
+    for d in md["dirs"]:
+        if d[1] in ("dyn", "cresc", "dim", "wedge-stop"):
+            tgt.m(b)["dirs"].append(d)
+# dinâmica de entrada de cada instrumento
+for inst in (SH, TA, SC):
+    first = min(inst.measures) if inst.measures else None
+    if first and not any(d[1] == "dyn" for d in inst.m(first)["dirs"]):
+        inst.dir(first, "dyn", "mf" if inst is SC else "mp")
+SC.dir(4, "text", "rulo (baqueta macia)", 6)
+
 # ------------------------------------------------------------------ verificação de tessitura (real)
 RANGES = {  # (mín, máx) em altura real
     FL: ("C4", "C7"), OB: ("Bb3", "F6"), CL: ("D3", "Bb5"), FG: ("Bb1", "Eb4"),
@@ -927,3 +966,14 @@ if problems:
 out = os.path.join(HERE, "uma-carta-viva.musicxml")
 sc.write(out)
 print("ok ->", out)
+
+# ------------------------------------------------------------------ arquivo de teste só com a percussão
+# Serve para testar rápido no Sibelius + NotePerformer se a bateria está tocando.
+teste = Score("Uma Carta Viva – teste de bateria", "GET Worship", "Arr. instrumental “Camp Inspired”", NBARS)
+teste.keys, teste.tempos, teste.marks, teste.barlines = sc.keys, sc.tempos, sc.marks, sc.barlines
+for inst in (SH, TA, SC, DR):
+    teste.add(inst)
+teste.group(0, 3, "bracket")
+out2 = os.path.join(HERE, "teste-bateria.musicxml")
+teste.write(out2)
+print("ok ->", out2)

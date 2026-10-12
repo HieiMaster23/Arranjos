@@ -21,6 +21,7 @@ DUR_TYPES = {1: ("16th", 0), 2: ("eighth", 0), 3: ("eighth", 1), 4: ("quarter", 
              7: ("quarter", 2)}
 
 # instrumento de percussão: (display-step, display-octave, notehead, stem)
+# Posições = mapa padrão do "Drum Set" do Sibelius (pauta de 5 linhas).
 DRUM_MAP = {
     "kick": ("F", 4, None, "down"),
     "snare": ("C", 5, None, "up"),
@@ -33,9 +34,16 @@ DRUM_MAP = {
     "hhfoot": ("D", 4, "x", "down"),
     "ride": ("F", 5, "x", "up"),
     "crash": ("A", 5, "x", "up"),
-    # percussão auxiliar (pauta de 5 linhas, tudo na 3a linha / 3o espaço)
-    "aux": ("C", 5, None, "up"),
-    "auxx": ("C", 5, "x", "up"),
+    # percussão auxiliar em pauta de 1 linha (nota na linha)
+    "line": ("E", 4, None, "up"),
+    "linex": ("E", 4, "x", "up"),
+}
+# nome do instrumento e nota MIDI General MIDI de cada peça do kit
+KIT = {
+    "kick": ("Acoustic Bass Drum", 36), "snare": ("Acoustic Snare", 38), "xstick": ("Side Stick", 37),
+    "tom1": ("High Tom", 50), "tom2": ("Low-Mid Tom", 47), "ftom": ("High Floor Tom", 43),
+    "hh": ("Closed Hi-Hat", 42), "hhopen": ("Open Hi-Hat", 46), "hhfoot": ("Pedal Hi-Hat", 44),
+    "ride": ("Ride Cymbal 1", 51), "crash": ("Crash Cymbal 1", 49),
 }
 
 
@@ -125,7 +133,8 @@ def parse_voice(s):
 # ---------------------------------------------------------------- estruturas
 class Instrument:
     def __init__(self, name, abbr, clef="G", staves=1, diatonic=0, chromatic=0, octave_change=0,
-                 midi_program=1, percussion=False, clefs=None, key_offset=0, lines=5, sound=None):
+                 midi_program=1, percussion=False, clefs=None, key_offset=0, lines=5, sound=None,
+                 sound_id=None, gm_key=None):
         self.name, self.abbr = name, abbr
         self.clefs = clefs or [clef] * staves
         self.staves = staves
@@ -136,6 +145,8 @@ class Instrument:
         self.key_offset = key_offset  # quintas a somar à armadura real
         self.lines = lines
         self.sound = sound
+        self.sound_id = sound_id  # MusicXML <instrument-sound> (o Sibelius usa para escolher o instrumento)
+        self.gm_key = gm_key  # percussão de 1 som: nota GM
         # measures[n] = {"staff": {staff_no: [voice_events,...]}, "dirs": [...], "harm": [...]}
         self.measures = {}
 
@@ -209,17 +220,24 @@ class Score:
             out.append(f'    <score-part id="{pid}"><part-name>{escape(p.name)}</part-name>'
                        f'<part-abbreviation>{escape(p.abbr)}</part-abbreviation>')
             if p.percussion and p.sound == "drums":
-                for k in ("kick", "snare", "xstick", "tom1", "tom2", "ftom", "hh", "hhopen", "hhfoot", "ride", "crash"):
-                    out.append(f'      <score-instrument id="{pid}-{k}"><instrument-name>{k}</instrument-name></score-instrument>')
+                for k, (nm, key) in KIT.items():
+                    out.append(f'      <score-instrument id="{pid}-{k}"><instrument-name>{nm}</instrument-name>'
+                               f'<instrument-sound>drum.group.set</instrument-sound></score-instrument>')
+                for k, (nm, key) in KIT.items():
+                    out.append(f'      <midi-instrument id="{pid}-{k}"><midi-channel>10</midi-channel>'
+                               f'<midi-program>1</midi-program><midi-unpitched>{key + 1}</midi-unpitched></midi-instrument>')
             else:
-                out.append(f'      <score-instrument id="{pid}-I1"><instrument-name>{escape(p.name)}</instrument-name></score-instrument>')
-            if p.percussion:
-                out.append(f'      <midi-instrument id="{pid}-{"snare" if p.sound=="drums" else "I1"}"><midi-channel>10</midi-channel></midi-instrument>')
-            else:
-                ch = (i % 15) + 1
-                ch = ch + 1 if ch >= 10 else ch
-                out.append(f'      <midi-instrument id="{pid}-I1"><midi-channel>{ch}</midi-channel>'
-                           f'<midi-program>{p.midi_program}</midi-program></midi-instrument>')
+                snd = f'<instrument-sound>{p.sound_id}</instrument-sound>' if p.sound_id else ''
+                out.append(f'      <score-instrument id="{pid}-I1"><instrument-name>{escape(p.name)}</instrument-name>'
+                           f'{snd}</score-instrument>')
+                if p.percussion:
+                    out.append(f'      <midi-instrument id="{pid}-I1"><midi-channel>10</midi-channel>'
+                               f'<midi-program>1</midi-program><midi-unpitched>{p.gm_key + 1}</midi-unpitched></midi-instrument>')
+                else:
+                    ch = (i % 15) + 1
+                    ch = ch + 1 if ch >= 10 else ch
+                    out.append(f'      <midi-instrument id="{pid}-I1"><midi-channel>{ch}</midi-channel>'
+                               f'<midi-program>{p.midi_program}</midi-program></midi-instrument>')
             out.append('    </score-part>')
             for gi in gends.get(i, []):
                 out.append(f'    <part-group type="stop" number="{gi}"/>')
@@ -420,8 +438,9 @@ class Score:
                 x += '<tie type="stop"/>'
             if t_start:
                 x += '<tie type="start"/>'
-            if h[0] == "drum" and p.sound == "drums":
-                x += f'<instrument id="P{self.parts.index(p)+1}-{d}"/>'
+            if h[0] == "drum":
+                iid = d if p.sound == "drums" else "I1"
+                x += f'<instrument id="P{self.parts.index(p)+1}-{iid}"/>'
             x += f'<voice>{voice}</voice><type>{typ}</type>' + '<dot/>' * dots
             if h[0] == "pitch" and p.sound != "slash":
                 acc = accidental_for(h[1], self._key_at(mnum) + p.key_offset)
