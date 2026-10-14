@@ -52,8 +52,9 @@ PRE = ["C(add9)", "G/B", "Bb(add9)", "F/A", "C(add9)", "G/B", "Bb(add9)", "F/A",
        "Abmaj9", "Bb(add9)", "Bb7sus4"]
 REFRAO = ["Ebmaj9", "Eb/G", "Abmaj9", "Bb7sus4", "Cm9", "Cm7/Bb", "Abmaj7", "Bb7sus4",
           "Cm7", "Bb/D", "Abmaj7", ("Bb", "Bb7sus4")]
-REFRAO_F = ["Fmaj9", "F/A", "Bbmaj9", "C7sus4", "Dm9", "Dm7/C", "Bbmaj7", "C7sus4",
-            "Dm7", "C/E", "Bbmaj7", ("C", "C7sus4")]
+# Refrão final (Fá): mais ousado - ii-V para o IV, V/vi, baixo descendo D-C-Bb-A-G (D7sus4 -> Gm9)
+REFRAO_F = ["Fmaj9", ("F/A", "Cm7"), "Bbmaj9", "C7sus4", "Dm9", ("Dm7/C", "F7/C"), "Bbmaj7", "A7#9",
+            ("Dm7", "Dm7/C"), ("Bbmaj9", "Bbm6"), ("Am7", "D7sus4"), ("Gm9", "C7sus4")]
 CHORDS = {
     "Intro": INTRO,
     "Parte 1": VERSO,
@@ -63,12 +64,16 @@ CHORDS = {
     "Parte 2": VERSO,
     "Pré-refrão 2": PRE,
     "Refrão 2": REFRAO + ["Eb(add9)"] + REFRAO,
-    "Vamp": ["Abmaj9", "Bb(add9)"] * 3 + ["Abmaj9", ("Bb(add9)", "C7sus4")],
-    "Vamp (Fá)": ["Bbmaj9", "C(add9)"] * 4,
-    "Preparação": ["Bb/C", "C7sus4"],
+    # vamp: cada ciclo de 2 c. ganha uma cor nova; modula por ii-V de Fá (Gm9 -> C7sus4)
+    "Vamp": ["Abmaj9", "Bb(add9)", "Fm11", ("Gm7", "C9"), ("Abmaj9", "Adim7"), ("Ebmaj7/Bb", "C9"),
+             ("Fm11", "Bb7sus4"), ("Gm9", "C7sus4")],
+    "Vamp (Fá)": ["Bbmaj9", ("Am7", "D9"), "Gm11", ("Am7", "D9"), ("Bbmaj9", "Bdim7"), ("Fmaj7/C", "D9"),
+                  ("Gm11", "C7sus4"), ("Am7", "Bbmaj7#11")],
+    "Preparação": [("Ab/Bb", "Bb/C"), "C7sus4"],
     "Refrão final": REFRAO_F,
-    "Final": ["F(add9)", "Bbmaj9", ("C", "C7sus4"), "F/A", "Gm7", ("C", "C7sus4"), "Dm7",
-              "Bbmaj7", "Bbm6", "F(add9)"],
+    # tags: cada um com uma cor; church ending Bbmaj9 -> Bbm6 -> F/C -> Db9 -> F6/9
+    "Final": [("F(add9)", "F7/Eb"), "Bbmaj9/D", ("Gm9", "C7sus4"), ("F/A", "Abdim7"), "Gm11",
+              ("C13", "C7sus4"), ("Dm9", "Dm7/C"), ("Bbmaj9", "Bbm6"), ("F/C", "Db9"), "F6/9"],
 }
 
 # ------------------------------------------------------------------ melodia (altura do guia, em Sol)

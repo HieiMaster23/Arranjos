@@ -75,7 +75,9 @@ def voicing(sym, prev, lo, hi, top_max, n=4, drop_root=True):
     tones = list(dict.fromkeys(pcs))
     if drop_root and len(tones) >= 4:
         tones = [t for t in tones if t != r]
-    tones = tones[:n]
+    # prioridade: 3ª, 7ª, 13ª/6ª, 9ª, 11ª, #11, b9, 5ª (a fundamental fica com o baixo)
+    prio = [4, 3, 10, 11, 9, 2, 5, 6, 1, 8, 7, 0]
+    tones = sorted(tones, key=lambda t: prio.index((t - r) % 12))[:n]
     best = None
     for start in range(lo, hi + 1):
         if start % 12 not in tones:

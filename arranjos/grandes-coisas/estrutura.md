@@ -270,9 +270,11 @@ a banda. A cifra básica da canção continua no § 1.
 | Partes 1 e 2 | Eb(add9) ×2 · Bb/D ×2 · Cm7 · Cm7 → **Eb7/Bb** · Abmaj7 · **Ab/Bb** / … · Abmaj7 → **G7#9** | Baixo descendo C–Bb–Ab com V7/IV; o G7#9 no fim prepara o pré (Dó maior) |
 | Pré-refrão | C(add9) · G/B · Bb(add9) · F/A (×2) · Abmaj9 · Bb(add9) · Bb7sus4 | Mantém a **descida cromática C–B–Bb–A–Ab** da canção |
 | Refrão | Ebmaj9 · Eb/G · Abmaj9 · Bb7sus4 · **Cm9** · Cm7/Bb · Abmaj7 · Bb7sus4 · Cm7 · Bb/D · Abmaj7 · Bb → Bb7sus4 | A cabeça "coi-sas" (Ré) vira 7ª maior/9ª: cor de gospel sem mudar a melodia |
-| Vamp (Mib → Fá) | Abmaj9 · Bb(add9) (×4) → no último c. **C7sus4** · depois Bbmaj9 · C(add9) (×4) | IV–V em loop; modula pela dominante sus de Fá |
-| Preparação | Bb/C · C7sus4 | "Gospel slash" (IV/V) |
-| Final | F(add9) · Bbmaj9 · C → C7sus4 · F/A · **Gm7** · C → C7sus4 · **Dm7** · Bbmaj7 · **Bbm6** · F(add9) | Cada tag com uma cor nova; church ending com iv menor (Bbm6) |
+| **Vamp (Mib)** | Abmaj9 · Bb(add9) · Fm11 · Gm7 → C9 · Abmaj9 → **A°7** · **Ebmaj7/Bb** → C9 · Fm11 → Bb7sus4 · **Gm9 → C7sus4** | Cada ciclo de 2 c. com uma cor nova (IV–#IV°–I/5, V/ii); modula pelo ii–V de Fá |
+| **Vamp (Fá)** | Bbmaj9 · Am7 → D9 · Gm11 · Am7 → D9 · Bbmaj9 → **B°7** · Fmaj7/C → D9 · Gm11 → C7sus4 · Am7 → **Bbmaj7#11** | Mesmo desenho um tom acima, mais denso; o Mi da melodia vira #11 no último compasso |
+| Preparação | **Ab/Bb → Bb/C** · C7sus4 | Acordes de barra subindo por tom até a dominante |
+| **Refrão final (Fá)** | Fmaj9 · F/A → **Cm7** · Bbmaj9 · C7sus4 · Dm9 · Dm7/C → **F7/C** · Bbmaj7 · **A7#9** · Dm7 → Dm7/C · Bbmaj9 → Bbm6 · Am7 → **D7sus4** · Gm9 → C7sus4 | ii–V para o IV, V/vi antes do "Todos dirão", baixo descendo D–C–Bb–A–G |
+| **Final (tags)** | F(add9) → **F7/Eb** · Bbmaj9/D · Gm9 → C7sus4 · F/A → **Ab°7** · Gm11 · C13 → C7sus4 · Dm9 → Dm7/C · Bbmaj9 → **Bbm6** · F/C → **Db9** · **F6/9** | Cada tag com uma cor nova; church ending com iv menor e bVI9 → I |
 
 ### Groove por seção
 
@@ -294,8 +296,10 @@ Viradas em semicolcheias (caixa → tons) no 2º meio do último compasso de cad
    sensação com a gravação.
 2. **Antecipações** do baixo e das teclas no "e" do 4: é a levada do guia; se ficar
    cheio demais com o coro, dá para manter só no baixo.
-3. **Reharmonizações mais ousadas** para aprovar: Eb7/Bb e G7#9 nas Partes, Cm9 no refrão,
-   Bbm6 no final.
+3. **Reharmonização** (aprovada em 14/10 e ampliada do vamp em diante). Toda nota da melodia
+   foi conferida contra o acorde: as notas "fora" são tensões (9ª, 13ª, #11) ou suspensões da
+   própria canção. Duas são de propósito no último tag: Lá sobre Bbm6 (7ª maior → 6ª, clichê
+   do iv menor) e Sol sobre Db9 (#11).
 4. **Teclado e órgão** estão escritos como guia (voicings fechados, padrão por seção); o
    tecladista pode e deve "abrir" e enfeitar. A guitarra está em notas reais (soa 8vb).
 5. O lead sheet (Etapa 1) foi regerado com essas cifras.
