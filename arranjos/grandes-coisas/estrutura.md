@@ -1,9 +1,9 @@
-# Grandes Coisas (Ministério Atitude): versão coro + orquestra, linha Pop/Black/Soul
+# Grandes Coisas (Ministério Atitude): versão coro + banda + metais, linha Pop/Black/Soul
 
 Status: **Etapa 0, análise da fonte e proposta de estrutura.** Aguardando as decisões da § 5.
 
 Referências de estilo: `docs/estilo-gospel-soul.md` (groove, coro, harmonia, vamp) +
-`docs/estilo-orquestracao.md` (escrita da orquestra, dobras e substituições).
+`docs/estilo-orquestracao.md` (só os princípios de dobra, leitura fácil e tessituras; aqui não há orquestra).
 Fonte: guia transcrito por IA (Moises): Melodia, Baixo, Bateria e Harmonias 1–7 (MIDI) + cifra
 do Cifra Club (enviada como imagem). Os MIDIs ficam fora do repositório; o mapa abaixo usa a
 numeração de compassos deles.
@@ -55,59 +55,69 @@ numeração de compassos deles.
 
 ## 2. Conceito da versão
 
-- **Coro S-A-T-B (B opcional) + solista** na frente; banda gospel (bateria, baixo, Hammond, piano/Rhodes,
-  guitarra) como motor; **horn section** (Tpts, Saxes, Tbns) com hits e riff original;
-  **cordas e madeiras** como camada "cinema" (pads, runs, brilho).
+**Formação (decidida em 14/10):** solista + **coro S-A-T-B** (B opcional, mas previsto) +
+**banda** + **naipe de metais pop: Trompete, Sax e Trombone**. Não há orquestra (cordas e madeiras
+saem; se quiser "pad", fica no teclado).
+
+- **Coro na frente**, banda gospel como motor e os 3 metais como *horn section* de pop/soul:
+  hits, respostas nos respiros e um riff original.
+- **Metais a 3 vozes:** Tpt no lead, Sax no meio e Tbn embaixo. Nos hits, em bloco fechado
+  (tríade ou acorde com 9ª/6ª). Nas frases de riff, Tpt + Sax em uníssono ou oitava e Tbn
+  com o baixo ou em 3ª/6ª abaixo. Nos tutti mais fortes, uníssono/oitava dos três para ter peso.
 - O material da canção já tem três ganchos fortes para o estilo:
-  1. **O baixo cromático do pré** (E–D#–D–C#): dá para uma linha de cordas/trombones e
-     para reharmonizar com dominantes de passagem (E7 – B7/D# …).
+  1. **O baixo cromático do pré** (E–D#–D–C# em Sol): linha do Trombone + baixo e
+     reharmonização com dominantes de passagem.
   2. **"Eu vou cantar, eu vou celebrar"**: frase curta e rítmica, ideal para o **vamp** com
-     camadas de coro, call-and-response e modulações.
+     camadas de coro, call-and-response e a modulação.
   3. **"Todos dirão, todos dirão"**: chamada e resposta natural (solista chama, coro responde).
 - **Riff original de metais** para a Intro/Interlúdio/Final, criado a partir da rítmica
-  sincopada de "Grandes coisas o Senhor já fez por mim" (não copiar a melodia: só a célula
-  rítmica e o contorno geral).
+  sincopada de "Grandes coisas o Senhor já fez por mim" (só a célula rítmica e o contorno
+  geral, sem copiar a melodia).
 
-## 3. Estrutura proposta (rascunho para discussão)
+## 3. Estrutura proposta (rascunho com compassos)
 
-Durações em ciclos de acordes; os compassos exatos saem na Etapa 1.
+♩ = 150, 4/4, 2 compassos por acorde (como no original). **Duração-alvo: a mesma do original
+(≈ 4:15).** Tonalidade de trabalho: **opção A (Fá → Sol)**, ainda a confirmar (§ 6).
 
-| # | Seção | Tom | Coro / solista | Banda + orquestra | Din. |
-|---|---|---|---|---|---|
-| 1 | **Intro** | G | — (ou "oohs" do coro no fim) | Riff original de metais sobre G – C – D/F# – C, hits com a bateria; cordas em pad | **f** |
-| 2 | **Parte 1** | G | **Solista** | Banda enxuta (bateria *pocket*, baixo, Rhodes); Hammond em pad; cordas *pp* | mp |
-| 3 | **Pré 1** | G | **Coro feminino em uníssono** entra | Cordas descem com o baixo cromático; cresc. | mp → mf |
-| 4 | **Refrão 1** | G | **Coro S-A-T(B)** em bloco | Metais respondem nos respiros; pandeirola | mf/f |
-| 5 | **Interlúdio** | G | — | Riff dos metais (versão curta) | f |
-| 6 | **Parte 2** | G | **Coro em uníssono** na melodia + solista *ad lib* | Saxes em contracanto suave; cordas "oohs" | mf |
-| 7 | **Pré 2** | G | **Coro em 2–3 vozes** | Tutti cresc.; run de cordas no fim | mf → f |
-| 8 | **Refrão 2 ×2** | G | Coro S-A-T; 2ª vez com solista por cima | Tutti; metais em bloco | f |
-| 9 | **Breakdown → Vamp** "Eu vou cantar, eu vou celebrar" | G → **Ab** → **A** | Camadas: S → +A → +T; solista chama | Começa com bateria + baixo + palmas; entra o órgão, depois metais e cordas; **2 modulações de meio tom** | p → ff |
-| 10 | **"Todos dirão" + Refrão final** | **A** | Call-and-response, depois S-A-T no agudo | *Shout chorus* dos metais, madeiras 8va | **ff** |
-| 11 | **Final** | A | Tag "Que grandes coisas Deus já fez por mim" ×3 (a última em rit.) | *Church ending* (IV – iv6 – I/V…) com fermata + hit | ff |
+| # | Seção | C. | Tom | Coro / solista | Banda + metais | Din. |
+|---|---|---|---|---|---|---|
+| 1 | **Intro** | 8 | F | — | Riff dos metais sobre F – Bb – C/E – Bb; hits com a bateria | **f** |
+| 2 | **Parte 1** | 16 | F | **Solista** | Banda enxuta (bateria *pocket*, baixo, teclas); metais tacet ou só 1 resposta | mp |
+| 3 | **Pré 1** | 10 | F | Entra o coro: **S+A em uníssono** | Tbn dobra o baixo cromático (D–C#–C–B); cresc. | mp → mf |
+| 4 | **Refrão 1** | 12 | F | **S-A-T-B** em bloco | Metais respondem nos respiros | f |
+| 5 | **Interlúdio** | 8 | F | — | Riff dos metais (variação) | f |
+| 6 | **Parte 2** | 16 | F | Solista + coro em "oohs" (A-T-B) e respostas curtas | Sax em contracanto suave | mf |
+| 7 | **Pré 2** | 10 | F | **S-A-T-B** | Tutti cresc.; fill no fim | mf → f |
+| 8 | **Refrão 2 ×2** | 24 | F | Coro em bloco; 2ª vez com o solista *ad lib* por cima | Metais em bloco + hits | f |
+| 9 | **Breakdown → Vamp** "Eu vou cantar, eu vou celebrar" | 16 + 2 + 8 | F → **G** | Camadas: B+T → +A → +S; o solista chama | Bateria + baixo + palmas; entram teclas e depois os metais; **compasso(s) de lançamento em D7sus e modulação para Sol** | p → ff |
+| 10 | **"Todos dirão" + Refrão final** | 24 | **G** | Call-and-response, depois S-A-T-B no agudo | *Shout* dos metais | **ff** |
+| 11 | **Final** | 10 | G | Tag "Que grandes coisas…" (rit. na última) | Riff final + *church ending* com fermata e hit | ff |
+|  | **Total** | **≈ 164** | | | | **≈ 4:22** |
+
+Se o tempo precisar bater mais justo com o original, dá para cortar no Refrão 2 (1× em
+vez de 2×) ou no vamp em Fá (8 c. em vez de 16).
 
 ## 4. Etapas de trabalho
 
 | Etapa | Entrega | Formato |
 |---|---|---|
 | **0. Análise + estrutura** | Este documento + memória de estilo gospel | `.md` (**feito**) |
-| **1. Lead sheet limpo** | Melodia corrigida (o Moises tem ruído e deslocamentos), cifra e letra, no tom e andamento definidos, já na forma nova (vamp, modulações) | MusicXML + PDF de prévia |
-| **2. Seção rítmica + harmonia gospel** | Reharmonização por seção, linha de baixo, groove de bateria por seção, cifra do teclado | MusicXML (Rhythm, Baixo, Bateria, Piano) |
-| **3. Coro** | Arranjo S-A-T-B (B opcional) com letra, respirações e cortes, seção por seção | MusicXML (pautas de coro + solista) |
-| **4. Metais e saxes** | Riff da intro, hits, respostas, shout chorus | MusicXML (grade parcial) |
-| **5. Cordas, madeiras e percussão** | Pads, runs, dobras, percussão por seção | Grade completa |
-| **6. Revisão e partes** | Playback (Sibelius + NotePerformer), partes individuais, substituições, redução de cordas | MusicXML + partes |
+| **1. Lead sheet limpo** | Melodia corrigida (o Moises tem ruído e deslocamentos), cifra e letra, no tom definido, já na forma nova | MusicXML + PDF de prévia |
+| **2. Seção rítmica + harmonia gospel** | Reharmonização por seção, linha de baixo, groove de bateria por seção, cifras | MusicXML (Bateria, Baixo, Teclado, Guitarra/cifra) |
+| **3. Coro** | S-A-T-B (B opcional) com letra, respirações e cortes | MusicXML (solista + 4 pautas de coro) |
+| **4. Metais** | Riff, hits, respostas e shout para Tpt, Sax e Tbn | MusicXML (grade completa) |
+| **5. Revisão e partes** | Playback (Sibelius + NotePerformer), partes individuais, guia de ensaio por naipe | MusicXML + partes |
 
 Em cada etapa você ouve/revisa antes de seguirmos para a próxima.
 
-## 5. Decisões pendentes (para fechar a Etapa 0)
+## 5. Decisões
 
 1. ~~Andamento~~: **♩ = 150** (decidido).
-2. **Tonalidade:** em discussão, ver § 6.
+2. **Tonalidade:** em discussão, ver § 6 (trabalhando com a opção A, Fá → Sol).
 3. ~~Coro~~: **S-A-T-B** (decidido). O baixo é escrito para cantar, mas a música tem que fechar sem ele: nada de essencial só no baixo (S-A-T completam o acorde; o baixo dobra a fundamental ou faz respostas/ostinatos graves).
-4. **Orquestra disponível:** formação completa (madeiras, saxes, metais, cordas) ou um grupo
-   menor? Tem órgão/Hammond, guitarra e Rhodes na banda?
-5. **Duração/forma:** manter a forma completa (≈ 5 min com o vamp) ou uma versão mais curta?
+4. ~~Formação~~: **banda + Trompete, Sax e Trombone** (decidido). Pendente: o sax é **alto ou tenor**? É 1 de cada? Na banda tem teclado, órgão e guitarra?
+5. ~~Duração~~: **≈ a do original** (decidido).
+6. **Solista dos versos:** homem ou mulher? (decide entre as opções A e B do § 6)
 
 ## 6. Tonalidade para o coro (opções em discussão)
 
@@ -129,7 +139,7 @@ muito. A decisão depende de **quem canta os versos** e de **para onde o vamp so
 
 | Opção | Pré (pico) | Refrão (sopranos) | Versos (solista homem / mulher) | Orquestra | Comentário |
 |---|---|---|---|---|---|
-| **A. Fá → Sol** (recomendada) | Sol5 | Fá4–Fá5 | Ré3–Dó4 / Ré4–Dó5 | Ótima (Fá e Sol) | Começa 1 tom abaixo e **termina no tom original** no clímax. O vamp sobe Fá → Sol (1 tom) ou Fá → Fá# → Sol (meio tom duas vezes; Fá# fica pesado para a orquestra, mas dura poucos compassos) |
+| **A. Fá → Sol** (recomendada) | Sol5 | Fá4–Fá5 | Ré3–Dó4 / Ré4–Dó5 | Ótima para os metais (Fá e Sol) | Começa 1 tom abaixo e **termina no tom original** no clímax. O vamp sobe Fá → Sol (1 tom) ou Fá → Fá# → Sol (meio tom duas vezes; Fá# fica pesado para os metais, mas dura poucos compassos) |
 | **B. Mib → Fá (→ Sol)** | Fá5 | Mib4–Mib5 | Dó3–Sib3 (grave) / Dó4–Sib4 | Ótima para metais | Mais confortável para o coro e com mais espaço para subir 2×. Só funciona bem com **solista mulher** (ou homem barítono com versos reescritos) |
 | C. Mi → Fá → Fá# | Fá#5 | Mi4–Mi5 | Dó#3–Si3 / Dó#4–Si4 | Ruim (Mi e Fá# para sopros em Sib) | Escada clássica de meio tom, mas cansativa para os sopros |
 | D. Sol sem modular | Lá5 | Sol4–Sol5 | Mi3–Ré4 / Mi4–Ré5 | Boa | Mantém o original, mas perde o recurso de subida no vamp |
