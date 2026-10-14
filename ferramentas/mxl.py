@@ -296,6 +296,8 @@ class Score:
                     num = f' number="{si}"' if p.staves > 1 else ''
                     if c == "G": attrs.append(f'<clef{num}><sign>G</sign><line>2</line></clef>')
                     elif c == "F": attrs.append(f'<clef{num}><sign>F</sign><line>4</line></clef>')
+                    elif c == "G8": attrs.append(f'<clef{num}><sign>G</sign><line>2</line>'
+                                                 '<clef-octave-change>-1</clef-octave-change></clef>')
                     elif c == "C": attrs.append(f'<clef{num}><sign>C</sign><line>3</line></clef>')
                     elif c == "perc": attrs.append(f'<clef{num}><sign>percussion</sign></clef>')
                 if p.percussion and p.lines != 5:

@@ -459,23 +459,53 @@ TXT = {
 }
 
 
+def band_parts(sc):
+    """Cria as partes da banda numa partitura (ordem: Teclado, Órgão, Guitarra, Baixo, Bateria)."""
+    return {
+        "Teclado": sc.add(Instrument("Teclado (piano)", "Tecl.", staves=2, clefs=["G", "F"], midi_program=1,
+                                     sound_id="keyboard.piano")),
+        "Órgão": sc.add(Instrument("Órgão (Hammond)", "Org.", staves=2, clefs=["G", "F"], midi_program=17,
+                                   sound_id="keyboard.organ.drawbar")),
+        "Guitarra": sc.add(Instrument("Guitarra", "Gtr.", diatonic=7, chromatic=12, midi_program=28,
+                                      sound_id="pluck.guitar.electric")),
+        "Baixo": sc.add(Instrument("Baixo", "Bx.", clef="F", diatonic=7, chromatic=12, midi_program=34,
+                                   sound_id="pluck.bass.electric")),
+        "Bateria": sc.add(Instrument("Bateria", "Bat.", clef="perc", percussion=True, sound="drums")),
+    }
+
+
+def fill_band(parts):
+    for _m, title, _l, _k in FORM:
+        b = START[title]
+        dyn = LS.DYN.get(title)
+        for nm, part in parts.items():
+            if nm in TXT and title in TXT[nm]:
+                part.dir(b, "text", TXT[nm][title])
+            if dyn:
+                part.dir(b, "dyn", dyn)
+    for bar, items in CH.items():
+        for p, sym in items:
+            parts["Teclado"].harm(bar, sym, offset=p)
+            parts["Guitarra"].harm(bar, sym, offset=p)
+    rh, lh = build_piano()
+    orh, olh = build_organ()
+    g, bs, (dh, df) = build_guitar(), build_bass(), build_drums()
+    for b in range(1, NBARS + 1):
+        parts["Teclado"].put(b, rh[b], staff=1)
+        parts["Teclado"].put(b, lh[b], staff=2)
+        parts["Órgão"].put(b, orh[b], staff=1)
+        parts["Órgão"].put(b, olh[b], staff=2)
+        parts["Guitarra"].put(b, g[b])
+        parts["Baixo"].put(b, bs[b])
+        parts["Bateria"].put(b, dh[b], df[b])
+
+
 def main():
     sc = Score("Grandes Coisas", "Ministério Atitude",
                "Coro (SATB) + banda + metais · Etapa 2: seção rítmica", NBARS, beats_div=BAR, time=(4, 4))
     sc.keys = {1: -3, START["Vamp (Fá)"]: -1}
     sc.tempos[1] = (150, "Pop/Black gospel")
     coro = sc.add(Instrument("Coro (melodia guia)", "Coro", midi_program=54, sound_id="voice.vocals"))
-    tec = sc.add(Instrument("Teclado (piano)", "Tecl.", staves=2, clefs=["G", "F"], midi_program=1,
-                            sound_id="keyboard.piano"))
-    org = sc.add(Instrument("Órgão (Hammond)", "Org.", staves=2, clefs=["G", "F"], midi_program=17,
-                            sound_id="keyboard.organ.drawbar"))
-    gtr = sc.add(Instrument("Guitarra", "Gtr.", diatonic=7, chromatic=12, midi_program=28,
-                            sound_id="pluck.guitar.electric"))
-    bx = sc.add(Instrument("Baixo", "Bx.", clef="F", diatonic=7, chromatic=12, midi_program=34,
-                           sound_id="pluck.bass.electric"))
-    dr = sc.add(Instrument("Bateria", "Bat.", clef="perc", percussion=True, sound="drums"))
-    sc.group(1, 5, "bracket", "Seção rítmica")
-
     for mark, title, length, key in FORM:
         b = START[title]
         if mark:
@@ -484,33 +514,15 @@ def main():
             coro.dir(b, "textb", title)
         if b > 1:
             sc.barlines[b - 1] = "light-light"
-        dyn = LS.DYN.get(title)
-        for part, nm in ((tec, "Teclado"), (org, "Órgão"), (gtr, "Guitarra"), (bx, "Baixo"), (dr, "Bateria")):
-            if nm in TXT and title in TXT[nm]:
-                part.dir(b, "text", TXT[nm][title])
-            if dyn:
-                part.dir(b, "dyn", dyn)
-    for bar, items in CH.items():
-        for p, sym in items:
-            tec.harm(bar, sym, offset=p)
-            gtr.harm(bar, sym, offset=p)
-
+    band = band_parts(sc)
+    sc.group(1, 5, "bracket", "Seção rítmica")
+    fill_band(band)
     mel = LS.build_measures()
     last = mel[NBARS].split()
     last[-1] += "!"
     mel[NBARS] = " ".join(last)
-    rh, lh = build_piano()
-    orh, olh = build_organ()
-    g, bs, (dh, df) = build_guitar(), build_bass(), build_drums()
     for b in range(1, NBARS + 1):
         coro.put(b, mel[b])
-        tec.put(b, rh[b], staff=1)
-        tec.put(b, lh[b], staff=2)
-        org.put(b, orh[b], staff=1)
-        org.put(b, olh[b], staff=2)
-        gtr.put(b, g[b])
-        bx.put(b, bs[b])
-        dr.put(b, dh[b], df[b])
     out = os.path.join(HERE, "grandes-coisas-ritmica.musicxml")
     sc.write(out)
     print(f"{out}: {NBARS} compassos")

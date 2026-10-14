@@ -1,11 +1,12 @@
 # Grandes Coisas (Ministério Atitude): versão coro + banda + metais, linha Pop/Black/Soul
 
-Status: **Etapa 2 pronta para revisão**: seção rítmica (teclado, órgão, guitarra, baixo,
-bateria) + harmonia gospel. Etapa 1 (lead sheet) revisada; ver § 8.
+Status: **Etapa 3 pronta para revisão**: coro SATB (+ grade completa coro + banda). Ver § 9.
 
 Arquivos: `grandes-coisas-leadsheet.musicxml` (abrir no Sibelius) · `previa-leadsheet.pdf`
 (prévia: `python3 ../../ferramentas/previa_pdf.py grandes-coisas-leadsheet.musicxml previa-leadsheet.pdf`)
 · `grandes-coisas-ritmica.musicxml` + `previa-ritmica.pdf` (Etapa 2; gerar: `python3 gerar_ritmica.py`)
+· `grandes-coisas-coro.musicxml` + `previa-coro.pdf` (Etapa 3, só o coro) e
+`grandes-coisas-grade.musicxml` (coro SATB + banda); gerar os dois: `python3 gerar_coro.py`
 · `gerar_leadsheet.py` (gera o lead sheet: `python3 gerar_leadsheet.py`)
 
 Referência de estilo: `docs/estilo-gospel-soul.md` (groove, coro, harmonia, vamp, metais).
@@ -303,3 +304,47 @@ Viradas em semicolcheias (caixa → tons) no 2º meio do último compasso de cad
 4. **Teclado e órgão** estão escritos como guia (voicings fechados, padrão por seção); o
    tecladista pode e deve "abrir" e enfeitar. A guitarra está em notas reais (soa 8vb).
 5. O lead sheet (Etapa 1) foi regerado com essas cifras.
+
+## 9. Etapa 3: coro SATB
+
+Arquivos: `grandes-coisas-coro.musicxml` (S, A, T, B com letra) e `grandes-coisas-grade.musicxml`
+(coro + Teclado, Órgão, Guitarra, Baixo, Bateria). Os dois foram validados contra o XSD oficial
+do MusicXML 3.1. O Tenor usa clave de sol 8vb.
+
+### Texturas
+
+| Seção | S | A | T | B |
+|---|---|---|---|---|
+| Intro | — | — | — | — |
+| Parte 1 | melodia (uníssono com A) | melodia | "Oh" nos finais de verso | "Oh" (fundamental) |
+| Pré-refrão 1 | melodia | harmonia abaixo | harmonia abaixo | entra em "Eu vou cantar" |
+| Refrão 1 / Refrão 2 (1ª) | acima da melodia (ou uníssono nas notas altas) | **melodia** | harmonia abaixo | fundamental |
+| Interlúdio | segura o "mim" | idem | idem | idem |
+| Parte 2 | "Ooh" (pad) | "Ooh" (pad) | melodia 8vb | melodia (uníssono com T) |
+| Pré-refrão 2 | melodia | abaixo | abaixo | fundamental |
+| Refrão 2 (2ª) | contracanto "Oh" agudo (notas longas) | melodia | melodia 8vb | fundamental |
+| Vamp (Mib) c. 1–2 | — | — | melodia 8vb | melodia 15ma abaixo (oitavas com T) |
+| Vamp c. 3–4 | — | melodia | melodia 8vb | idem |
+| Vamp c. 5–6 | melodia | abaixo | melodia 8vb | fundamental |
+| Vamp c. 7–8 / Vamp (Fá) | melodia | abaixo | abaixo | fundamental |
+| Refrão final | melodia | abaixo | abaixo | fundamental |
+| "To-dos di-rão," / "to-dos di-rão" | mulheres chamam (S melodia, A abaixo) | | homens respondem (T melodia 8vb, B abaixo) | |
+| Final | bloco; acorde final aberto F6/9: Dó5 / Lá4 / Fá4 / Fá3 | | | |
+
+### Como as vozes foram escritas
+- As vozes de harmonia são escolhidas **juntas** a cada nota (e de novo quando o acorde muda
+  sob uma nota longa): sem cruzamento, 3ª do acorde presente, pouca dobra, vozes dentro de
+  uma oitava e movimento mínimo. Notas de passagem da melodia recebem 3ªs/6ªs paralelas.
+- Limites de *belt*: penalidade acima de Mi4 (T), Ré5 (S) e Dó5 (A). Resultado (altura real):
+  **S** Dó4–Fá5 (Fá5 só curto, em "Gran-**des**") · **A** Sib3–Mib5 (Mib5 só na melodia) ·
+  **T** Dó3–Fá4 · **B** Sol2–Sib3.
+- Grafia simplificada para o coro (sem Dób/Fáb/dobrados).
+
+### Pontos para revisar (Etapa 3)
+1. **Melodia nas contraltos** nos refrões em Mib (Mib5 no topo, 10 % do refrão); se pesar,
+   dá para trocar e deixar a melodia nas sopranos.
+2. **Respostas da Parte 1** ("Oh") e **contracanto das sopranos** no Refrão 2 (2ª vez) estão em
+   "Oh" para não inventar letra; se quiser respostas com palavras ("Grandes coisas!"), escrevo.
+3. **Vamp:** tenores e baixos em oitavas no início (baixos uma oitava abaixo dos tenores).
+4. As vozes internas são um bom ponto de partida para ensaio; ajustes finos de condução
+   (sobretudo nos tenores) ficam mais fáceis ouvindo no Sibelius.
