@@ -77,22 +77,22 @@ saem; se quiser "pad", fica no teclado).
 ## 3. Estrutura proposta (rascunho com compassos)
 
 ♩ = 150, 4/4, 2 compassos por acorde (como no original). **Duração-alvo: a mesma do original
-(≈ 4:15).** Tonalidade: **Fá → Sol** (§ 6). **Sem solista: o coro canta tudo.** As chamadas e
+(≈ 4:15).** Tonalidade: **Mib → Fá** (proposta, § 6). **Sem solista: o coro canta tudo.** As chamadas e
 respostas ficam entre naipes (mulheres × homens, sopranos × resto).
 
 | # | Seção | C. | Tom | Coro | Banda + metais | Din. |
 |---|---|---|---|---|---|---|
-| 1 | **Intro** | 8 | F | — (ou "Oh!" em hit no último c.) | Riff dos metais sobre F – Bb – C/E – Bb; hits com a bateria | **f** |
-| 2 | **Parte 1** | 16 | F | **Mulheres em uníssono** (S+A, Ré4–Dó5); nos finais de frase, T+B respondem com hits curtos ("ooh"/"yeah") | Banda enxuta (bateria *pocket*, baixo, teclas); metais tacet | mp |
-| 3 | **Pré 1** | 10 | F | **S-A-T** em bloco, o B entra no "Eu vou cantar…" | Tbn dobra o baixo cromático (D–C#–C–B); cresc. | mp → mf |
-| 4 | **Refrão 1** | 12 | F | **S-A-T-B** em bloco, melodia nas sopranos | Metais respondem nos respiros | f |
-| 5 | **Interlúdio** | 8 | F | "Oohs" em pad (opcional) | Riff dos metais (variação) | f |
-| 6 | **Parte 2** | 16 | F | **Homens em uníssono** (T+B, Ré3–Dó4) na melodia; mulheres em "oohs"/respostas a 2 vozes | Sax em contracanto suave | mf |
-| 7 | **Pré 2** | 10 | F | **S-A-T-B** | Tutti cresc.; fill no fim | mf → f |
-| 8 | **Refrão 2 ×2** | 24 | F | Bloco; 2ª vez com as sopranos num contracanto agudo e A-T-B na melodia | Metais em bloco + hits | f |
-| 9 | **Breakdown → Vamp** "Eu vou cantar, eu vou celebrar" | 16 + 2 + 8 | F → **G** | Camadas a cada 4 c.: B+T (ostinato grave) → +A → +S (agudo); em Sol, tutti | Bateria + baixo + palmas; entram teclas e depois os metais; **lançamento em D7sus e modulação para Sol** | p → ff |
-| 10 | **"Todos dirão" + Refrão final** | 24 | **G** | **Mulheres chamam / homens respondem** ("Todos dirão!"), depois S-A-T-B no agudo | *Shout* dos metais | **ff** |
-| 11 | **Final** | 10 | G | Tag "Que grandes coisas…" ×3, a última em rit. com acorde aberto | Riff final + *church ending* com fermata e hit | ff |
+| 1 | **Intro** | 8 | Eb | — (ou "Oh!" em hit no último c.) | Riff dos metais sobre Eb – Ab – Bb/D – Ab; hits com a bateria | **f** |
+| 2 | **Parte 1** | 16 | Eb | **Mulheres em uníssono** (S+A, Dó4–Sib4); nos finais de frase, T+B respondem com hits curtos ("ooh"/"yeah") | Banda enxuta (bateria *pocket*, baixo, teclas); metais tacet | mp |
+| 3 | **Pré 1** | 10 | Eb | **S-A-T** em bloco, o B entra no "Eu vou cantar…" | Tbn dobra o baixo cromático (C–B–Bb–A); cresc. | mp → mf |
+| 4 | **Refrão 1** | 12 | Eb | **S-A-T-B** em bloco, melodia nas contraltos (+ sopranos em uníssono ou em 3ª acima) | Metais respondem nos respiros | f |
+| 5 | **Interlúdio** | 8 | Eb | "Oohs" em pad (opcional) | Riff dos metais (variação) | f |
+| 6 | **Parte 2** | 16 | Eb | **Homens em uníssono** (T+B, Dó3–Sib3; T pode ir 8va nos finais) na melodia; mulheres em "oohs"/respostas a 2 vozes | Sax em contracanto suave | mf |
+| 7 | **Pré 2** | 10 | Eb | **S-A-T-B** | Tutti cresc.; fill no fim | mf → f |
+| 8 | **Refrão 2 ×2** | 24 | Eb | Bloco; 2ª vez com as sopranos num contracanto agudo e A-T-B na melodia | Metais em bloco + hits | f |
+| 9 | **Breakdown → Vamp** "Eu vou cantar, eu vou celebrar" | 16 + 2 + 8 | Eb → **F** | Camadas a cada 4 c.: B+T (ostinato grave) → +A → +S (agudo); em Fá, tutti | Bateria + baixo + palmas; entram teclas e depois os metais; **lançamento em C7sus e modulação para Fá** | p → ff |
+| 10 | **"Todos dirão" + Refrão final** | 24 | **F** | **Mulheres chamam / homens respondem** ("Todos dirão!"), depois S-A-T-B no agudo | *Shout* dos metais | **ff** |
+| 11 | **Final** | 10 | F | Tag "Que grandes coisas…" ×3, a última em rit. com acorde aberto | Riff final + *church ending* com fermata e hit | ff |
 |  | **Total** | **≈ 164** | | | | **≈ 4:22** |
 
 Se o tempo precisar bater mais justo com o original, dá para cortar no Refrão 2 (1× em
@@ -114,7 +114,7 @@ Em cada etapa você ouve/revisa antes de seguirmos para a próxima.
 ## 5. Decisões
 
 1. ~~Andamento~~: **♩ = 150** (decidido).
-2. **Tonalidade:** **Fá → Sol** (opção A do § 6), proposta a confirmar. Sem solista, é a melhor para os quatro naipes.
+2. **Tonalidade:** proposta **Mib → Fá** (§ 6, "Revisão"), a confirmar. Fá → Sol deixava o refrão com Fá5 no topo: alto demais para o som *belt* do pop/black.
 3. ~~Coro~~: **S-A-T-B** (decidido). O baixo é escrito para cantar, mas a música tem que fechar sem ele: nada de essencial só no baixo (S-A-T completam o acorde; o baixo dobra a fundamental ou faz respostas/ostinatos graves).
 4. ~~Formação~~: **banda + Trompete, Sax Alto e Trombone, 1 de cada** (decidido). Pendente: na banda tem teclado, órgão e guitarra?
 5. ~~Duração~~: **≈ a do original** (decidido).
@@ -160,3 +160,37 @@ muito. A decisão depende de **quem canta os versos** e de **para onde o vamp so
 Com o B na fundamental, Fá e Sol são tons muito bons para os baixos (Fá2–Ré4 cobre tudo, e
 o pedal de tônica fica em Fá2/Fá3). Em Mib, o Mib2 já é grave para baixo amador, então o
 baixo fica mais vezes na oitava de cima. Isso conta mais um ponto para a **opção A**.
+
+### Revisão (14/10): Fá5 no topo do refrão é alto para um refrão pop?
+
+**Sim, para o som que queremos.** Em Fá, as sopranos ficariam ~10 % do refrão em Fá5 e ~10 % em
+Mi5 (a cabeça "Grandes coisas" vai ao topo), e o pré chegaria a Sol5. Para canto lírico isso é
+normal, mas o som black/pop é ***belt*** (voz de peito/mista), e o teto confortável de *belt*
+de uma soprano amadora fica por volta de **Ré5–Mib5**. Acima disso, ela passa para a voz de
+cabeça e o som perde o peso.
+
+Distribuição do refrão (tempo em cada nota):
+
+| Nota do guia | % do refrão | em Fá (mulheres) | em **Mib** (mulheres) | em Ré (mulheres) |
+|---|---|---|---|---|
+| Sol4 | 10 % | Fá5 | **Mib5** | Ré5 |
+| Fá#4 | 11 % | Mi5 | Ré5 | Dó#5 |
+| Ré4 | 25 % | Dó5 | Sib4 | Lá4 |
+| Lá3 | 14 % | Sol4 | Fá4 | Mi4 |
+| Sol3 | 22 % | Fá4 | Mib4 | Ré4 |
+
+**Proposta nova: Mib → Fá.**
+- Refrão das mulheres em Mib4–Mib5, inteiro dentro do *belt*. O pico do pré (Fá5, 4 % do pré)
+  fica só com as sopranos.
+- **Melodia nas contraltos** (região de peito ideal), com as sopranos em uníssono ou numa
+  harmonia acima. Isso é bem típico do coro black.
+- Versos: mulheres em Dó4–Sib4 (ótimo para contraltos) e homens em Dó3–Sib3 (barítonos e
+  baixos; os tenores podem subir 8va nos finais de frase).
+- O vamp sobe 1 tom para **Fá**, e o refrão final chega a Fá5 só no clímax, quando o *ff* e a
+  energia justificam. Se mesmo assim ficar alto, o refrão final pode ter a melodia nas
+  contraltos e as sopranos numa 3ª abaixo do topo nas notas mais altas.
+- Para os metais, Mib e Fá são ótimos (Tpt em Fá/Sol escrito, Sax alto em Dó/Ré).
+- Baixos do coro: fundamental em Mib3 (ou Mib2 opcional).
+
+Alternativa ainda mais baixa: **Ré → Mi** (refrão Ré4–Ré5), mas os versos dos homens ficam em
+Si2–Lá3 (grave demais) e Mi é um tom pior para os metais.

@@ -70,6 +70,12 @@ música precisa funcionar com orquestra incompleta).
   dobrada nos acordes maiores.
 - **Tessituras (confortáveis para coro de igreja):** Soprano Ré4–Sol5 (Lá5 só no clímax),
   Contralto Lá3–Ré5, Tenor Ré3–Sol4 (Lá4 só no clímax).
+- **Belt (voz de peito/mista) é o som do estilo.** Para cantores amadores, o teto confortável
+  de *belt* fica em torno de **Ré5–Mib5** (mulheres) e **Mi4–Fá4** (homens). A melodia de
+  refrão que fica muito tempo acima disso empurra o coro para a voz de cabeça e o som perde peso.
+  Escolha o tom pelo *belt*, não pela extensão máxima. As notas acima disso ficam só no clímax.
+- **Melodia nas contraltos** (com as sopranos em uníssono ou numa harmonia acima) é uma
+  escolha típica do coro black: soa encorpado e deixa as sopranos livres para o brilho.
 - **Ritmo:** consoantes precisas, cortes em conjunto (indicar a duração exata da última
   nota) e antecipações de colcheia em sincronia com os hits da banda.
 - **Camadas no vamp:** cada repetição acrescenta um naipe ou sobe o registro. Uma voz pode
