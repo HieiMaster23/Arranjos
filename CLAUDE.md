@@ -6,6 +6,8 @@ Repositório de arranjos e orquestrações próprios (louvor/worship para orques
 
 Antes de criar ou revisar qualquer arranjo, leia `docs/estilo-orquestracao.md`. Ele resume a
 forma, a textura, o papel de cada naipe, as modulações e o checklist do estilo de referência.
+Para arranjos de linha Pop/Black/Soul gospel (coro + banda + orquestra), leia também
+`docs/estilo-gospel-soul.md` (groove, coro S-A-T, reharmonização, vamp e modulações).
 
 Regras:
 - As obras de referência têm **direitos autorais**. Siga apenas as ideias gerais e as técnicas;
