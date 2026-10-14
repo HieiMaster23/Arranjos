@@ -4,10 +4,15 @@ Repositório de arranjos e orquestrações próprios (louvor/worship para orques
 
 ## Memória de estilo
 
-Antes de criar ou revisar qualquer arranjo, leia `docs/estilo-orquestracao.md`. Ele resume a
-forma, a textura, o papel de cada naipe, as modulações e o checklist do estilo de referência.
-Para arranjos de linha Pop/Black/Soul gospel (coro + banda + orquestra), leia também
-`docs/estilo-gospel-soul.md` (groove, coro S-A-T, reharmonização, vamp e modulações).
+Cada arranjo é um **projeto musicalmente independente** na sua pasta em `arranjos/`: conceito,
+estilo, material temático e decisões de um não se aplicam ao outro. O que é compartilhado é só
+a parte técnica em `ferramentas/` (escritor de MusicXML `mxl.py`, prévia em PDF `previa_pdf.py`,
+estrutura de grade). Não regere nem altere arquivos de outro projeto.
+
+- Arranjos orquestrais "Camp" (ex.: `uma-carta-viva`): leia `docs/estilo-orquestracao.md`
+  (forma, textura, papel de cada naipe, modulações e checklist).
+- Arranjos Pop/Black/Soul gospel (ex.: `grandes-coisas`, coro SATB + banda + metais): leia
+  `docs/estilo-gospel-soul.md` (groove, coro, reharmonização, vamp e modulações).
 
 Regras:
 - As obras de referência têm **direitos autorais**. Siga apenas as ideias gerais e as técnicas;

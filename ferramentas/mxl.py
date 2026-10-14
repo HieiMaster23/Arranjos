@@ -10,6 +10,8 @@ Convenções:
     ~  liga para a próxima      (  início de ligadura de expressão   )  fim de ligadura
     >  acento   ^ marcato   .  staccato   -  tenuto   !  fermata   *  trêmolo (3 traços)
   Para percussão: "p:snare/2", "p:hh/2" (ver DRUM_MAP); cabeças x vêm do mapa.
+- Letra: "Eb4/4|Gran-" (sílaba após "|"; hífen no fim = a palavra continua; "‿" junta
+  sílabas numa nota, ex.: "do‿o").
 """
 from xml.sax.saxutils import escape
 
@@ -80,7 +82,8 @@ def transpose(p, diatonic, chromatic):
 
 # ---------------------------------------------------------------- tokens
 class Ev:
-    __slots__ = ("pitches", "dur", "tie", "tie_stop", "tie_set", "tie_stop_set", "slur_start", "slur_stop", "arts", "drum", "grace")
+    __slots__ = ("pitches", "dur", "tie", "tie_stop", "tie_set", "tie_stop_set", "slur_start", "slur_stop", "arts", "drum", "grace",
+                 "lyric", "syllabic")
 
     def __init__(self):
         self.pitches = []  # vazio = pausa
@@ -92,10 +95,14 @@ class Ev:
         self.slur_start = self.slur_stop = False
         self.arts = set()
         self.drum = None
+        self.lyric = None  # sílaba ("Gran-" = continua com hífen; "_" = sílaba vazia)
+        self.syllabic = None
 
 
 def parse_token(tok):
     e = Ev()
+    if "|" in tok:
+        tok, e.lyric = tok.split("|", 1)
     body, dur = tok.rsplit("/", 1)
     flags = ""
     while dur and not dur[-1].isdigit():
@@ -264,6 +271,8 @@ class Score:
     def _write_part(self, idx, p):
         pid = f"P{idx+1}"
         o = [f'  <part id="{pid}">']
+        self._syllabify(p)
+        self._link_ties(p)
         pending = {}
         for n in range(1, self.n + 1):
             md = p.m(n)
@@ -309,11 +318,12 @@ class Score:
                                  f'<words font-weight="bold">{escape(text)}</words></direction-type></direction>')
                 if n in self.tempos:
                     bpm, text = self.tempos[n]
+                    compound = self.time[1] == 8  # 6/8: andamento em semínima pontuada
                     o.append('      <direction placement="above"><direction-type>'
                              + (f'<words font-weight="bold">{escape(text)}</words></direction-type><direction-type>' if text else '')
-                             + '<metronome><beat-unit>quarter</beat-unit><beat-unit-dot/>'
-                             f'<per-minute>{bpm}</per-minute></metronome></direction-type>'
-                             f'<sound tempo="{bpm*1.5:g}"/></direction>')
+                             + '<metronome><beat-unit>quarter</beat-unit>' + ('<beat-unit-dot/>' if compound else '')
+                             + f'<per-minute>{bpm}</per-minute></metronome></direction-type>'
+                             f'<sound tempo="{bpm*1.5 if compound else bpm:g}"/></direction>')
             # cifras (harmony) — ordenadas por offset, intercaladas por forward
             events_written = False
             for staff in range(1, p.staves + 1):
@@ -346,6 +356,35 @@ class Score:
             o.append('    </measure>')
         o.append('  </part>')
         return o
+
+    def _link_ties(self, p):
+        """Resolve as ligaduras (inclusive entre compassos) antes de escrever o XML."""
+        prev = {}
+        for n in range(1, self.n + 1):
+            for staff, voices in p.m(n)["staff"].items():
+                for vi, evs in enumerate(voices, 1):
+                    for e in evs:
+                        a = prev.get((staff, vi))
+                        if a is not None and a.tie and a.pitches and e.pitches:
+                            common = set(a.pitches) & set(e.pitches)
+                            a.tie_set |= common
+                            e.tie_stop_set |= common
+                        prev[(staff, vi)] = e
+
+    def _syllabify(self, p):
+        """Define begin/middle/end/single das sílabas (voz 1 de cada pauta, em ordem)."""
+        for staff in range(1, p.staves + 1):
+            cont = False
+            for n in range(1, self.n + 1):
+                voices = p.m(n)["staff"].get(staff)
+                if not voices:
+                    continue
+                for e in voices[0]:
+                    if not e.lyric:
+                        continue
+                    hy = e.lyric.endswith("-")
+                    e.syllabic = ("middle" if hy else "end") if cont else ("begin" if hy else "single")
+                    cont = hy
 
     def _directions_xml(self, p, md, staff, offset_from, offset_to, cur):
         """Gera direções (dinâmica, texto, wedges) e cifras com offset no intervalo."""
@@ -479,6 +518,11 @@ class Score:
                     nots.append('<ornaments><tremolo type="single">3</tremolo></ornaments>')
             if nots:
                 x += '<notations>' + ''.join(nots) + '</notations>'
+            if hi == 0 and e.lyric and e.lyric != "_":
+                txt = e.lyric[:-1] if e.lyric.endswith("-") else e.lyric
+                # "do‿o" = elisão (duas sílabas na mesma nota)
+                body = '<elision>‿</elision>'.join(f'<text>{escape(t)}</text>' for t in txt.split("‿"))
+                x += f'<lyric number="1"><syllabic>{e.syllabic or "single"}</syllabic>{body}</lyric>'
             x += '</note>'
             o.append(x)
         return o

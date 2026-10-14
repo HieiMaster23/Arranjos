@@ -1,9 +1,15 @@
 # Grandes Coisas (Ministério Atitude): versão coro + banda + metais, linha Pop/Black/Soul
 
-Status: **Etapa 0, análise da fonte e proposta de estrutura.** Aguardando as decisões da § 5.
+Status: **Etapa 1 pronta para revisão**: lead sheet (melodia do coro + cifra + letra) na forma
+nova, em Mib → Fá. Ver § 7 (pontos a conferir com a gravação).
 
-Referências de estilo: `docs/estilo-gospel-soul.md` (groove, coro, harmonia, vamp) +
-`docs/estilo-orquestracao.md` (só os princípios de dobra, leitura fácil e tessituras; aqui não há orquestra).
+Arquivos: `grandes-coisas-leadsheet.musicxml` (abrir no Sibelius) · `previa-leadsheet.pdf`
+(prévia: `python3 ../../ferramentas/previa_pdf.py grandes-coisas-leadsheet.musicxml previa-leadsheet.pdf`)
+· `gerar_leadsheet.py` (gera o lead sheet: `python3 gerar_leadsheet.py`)
+
+Referência de estilo: `docs/estilo-gospel-soul.md` (groove, coro, harmonia, vamp, metais).
+Projeto musicalmente independente dos outros arranjos do repositório (só as ferramentas de
+`ferramentas/` são compartilhadas).
 Fonte: guia transcrito por IA (Moises): Melodia, Baixo, Bateria e Harmonias 1–7 (MIDI) + cifra
 do Cifra Club (enviada como imagem). Os MIDIs ficam fora do repositório; o mapa abaixo usa a
 numeração de compassos deles.
@@ -114,13 +120,13 @@ Em cada etapa você ouve/revisa antes de seguirmos para a próxima.
 ## 5. Decisões
 
 1. ~~Andamento~~: **♩ = 150** (decidido).
-2. **Tonalidade:** proposta **Mib → Fá** (§ 6, "Revisão"), a confirmar. Fá → Sol deixava o refrão com Fá5 no topo: alto demais para o som *belt* do pop/black.
+2. ~~Tonalidade~~: **Mib → Fá** (confirmado em 14/10; ver § 6, "Revisão"). Fá → Sol deixava o refrão com Fá5 no topo: alto demais para o som *belt* do pop/black.
 3. ~~Coro~~: **S-A-T-B** (decidido). O baixo é escrito para cantar, mas a música tem que fechar sem ele: nada de essencial só no baixo (S-A-T completam o acorde; o baixo dobra a fundamental ou faz respostas/ostinatos graves).
-4. ~~Formação~~: **banda + Trompete, Sax Alto e Trombone, 1 de cada** (decidido). Pendente: na banda tem teclado, órgão e guitarra?
+4. ~~Formação~~: **banda (bateria, baixo, teclado, órgão, guitarra) + Trompete, Sax Alto e Trombone, 1 de cada** (decidido).
 5. ~~Duração~~: **≈ a do original** (decidido).
 6. ~~Solista~~: **sem solista** (decidido): o coro brilha sozinho, em linguagem bem black.
 
-## 6. Tonalidade para o coro (opções em discussão)
+## 6. Tonalidade para o coro (decidido: Mib → Fá)
 
 ### Extensão da melodia por seção (altura do guia, voz masculina)
 
@@ -194,3 +200,55 @@ Distribuição do refrão (tempo em cada nota):
 
 Alternativa ainda mais baixa: **Ré → Mi** (refrão Ré4–Ré5), mas os versos dos homens ficam em
 Si2–Lá3 (grave demais) e Mi é um tom pior para os metais.
+
+## 7. Etapa 1: lead sheet
+
+### Mapa de compassos (♩ = 150, 4/4)
+
+| Marca | Seção | Compassos | Nº | Tom | Acordes |
+|---|---|---|---|---|---|
+| A | Intro | 1–8 | 8 | Mib | Eb Ab Bb/D |
+| B | Parte 1 | 9–24 | 16 | Mib | Eb Bb/D Cm Ab |
+| C | Pré-refrão | 25–35 | 11 | Mib | C G/B Bb F/A Ab |
+| D | Refrão | 36–47 | 12 | Mib | Eb Ab Bb Cm7 |
+| E | Interlúdio | 48–55 | 8 | Mib | Eb Ab Bb/D |
+| F | Parte 2 | 56–71 | 16 | Mib | Eb Bb/D Cm Ab |
+| G | Pré-refrão 2 | 72–82 | 11 | Mib | C G/B Bb F/A Ab |
+| H | Refrão 2 | 83–107 | 25 | Mib | Eb Ab Bb Cm7 |
+| I | Vamp | 108–123 | 16 | Mib | Eb Ab Bb |
+| — | Lançamento | 124–125 | 2 | Mib | C7sus4 C7 |
+| J | Vamp (Fá) | 126–133 | 8 | Fá | Bb C |
+| K | Todos dirão | 134–142 | 9 | Fá | Dm7 C Bb F |
+| L | Refrão final | 143–154 | 12 | Fá | F Bb C Dm7 |
+| M | Final | 155–164 | 10 | Fá | F Bb C Dm7 Bbm6 F(add9) |
+
+Total: **164 compassos ≈ 4:22**.
+
+### Como a melodia foi limpa
+- A melodia está escrita na altura das **vozes femininas**. Os homens cantam 8vb (Parte 2 e
+  camadas graves do vamp).
+- Usei principalmente a 1ª passagem de cada seção do guia (c. 18–57 do MIDI), onde o Moises
+  está mais estável. Mais adiante a gravação "escorrega" em relação à grade de 150 (deve ser
+  ao vivo), e a Parte 2 e o Pré 2 do MIDI ficam deslocados.
+- **Ritmo:** a melodia do guia entra quase sempre **no contratempo** (antecipações de
+  colcheia), e mantive isso porque é a "levada" da música. O baixo também antecipa as
+  mudanças de acorde em colcheia.
+- O refrão terminava sobre a chegada do acorde ("mim"): a nota fica segura no 1º compasso da
+  seção seguinte (Interlúdio, Vamp, Final), e a anacruse "Gran-des" entra nos tempos 3 e 4 do
+  compasso de chegada.
+
+### Pontos a conferir com a gravação (§ 7)
+1. **Antecipações:** confirme se a voz realmente entra no contratempo ("Nas-ceu em meu…").
+   Detalhe: a caixa do guia cai nos tempos 1 e 3 da grade do Moises; na Etapa 2 vou
+   escrever a bateria com caixa no **2 e 4** em relação aos acordes. Se soar "invertido",
+   desloco a grade.
+2. **Pré-refrão, 1º verso:** a divisão de "se‿en-**cheu** de **ri**-sos" (melisma em "cheu" e
+   em "sos") foi deduzida pela comparação com o 2º verso; confira as sílabas.
+3. **Refrão:** "coi-**sas**" com a volta Mi–Fá#–Sol (no guia) e "mim" com Lá–Si–Lá. Veja se é
+   isso ou se a gravação divide outras sílabas nessas notas.
+4. **Elisões:** "Quan-do‿o", "sor-te‿e-le", "la-men-to‿a", "Tu-do‿em" ficam numa nota só.
+5. **Parte 2:** usei a mesma letra da Parte 1 (a cifra só mostra uma estrofe).
+6. **Pré-refrão 2:** no original ele sobe até Lá ("eu vou celebrar"); no lead sheet ficou
+   igual ao Pré 1. Se quiser a subida, entra na Etapa 3 (coro).
+7. **Vamp, Lançamento e Final** (acordes Ab–Bb, C7sus4–C7, Bbm6) são provisórios:
+   a harmonia gospel é definida na Etapa 2.

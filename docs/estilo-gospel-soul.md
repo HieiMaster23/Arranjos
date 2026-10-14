@@ -7,9 +7,8 @@
 > artistas. Todo material temático do arranjo precisa ser **original** e sair da canção que
 > está sendo arranjada.
 >
-> Ele complementa `estilo-orquestracao.md` (escrita para orquestra de igreja, dobras,
-> substituições). Nos arranjos de linha gospel/soul, **este documento manda no groove, na
-> harmonia e no coro**, e o outro continua valendo para a escrita da orquestra.
+> É uma memória de estilo **independente** (não se mistura com `estilo-orquestracao.md`,
+> que é a referência dos arranjos orquestrais "Camp").
 
 ---
 
@@ -41,8 +40,8 @@
 | **Madeiras** | Brilho 8va nos tutti, ecos curtos e trinados nas chegadas |
 | **Percussão** | Pandeirola, shaker, palmas (2 e 4), prato suspenso em swell e congas *ad lib* |
 
-As regras de dobra e de substituição de `estilo-orquestracao.md` continuam valendo (a
-música precisa funcionar com orquestra incompleta).
+Linhas importantes sempre dobradas (a música precisa funcionar se faltar alguém) e
+tessituras confortáveis para músicos de igreja.
 
 ## 3. Forma típica
 
@@ -140,6 +139,6 @@ música precisa funcionar com orquestra incompleta).
 - [ ] Groove por seção (bateria, baixo, teclas) e onde ficam os hits em conjunto
 - [ ] Reharmonização: só onde ajuda; o refrão continua cantável
 - [ ] Metais respondendo nos respiros do coro, não em cima da letra
-- [ ] Orquestra em camadas (pad → runs → tutti), seguindo `estilo-orquestracao.md`
+- [ ] Crescimento em camadas (banda enxuta → + metais → tutti), seção por seção
 - [ ] Final (church ending, stinger ou tag)
 - [ ] Revisar se nenhum riff, vamp ou voicing ficou parecido com material protegido
