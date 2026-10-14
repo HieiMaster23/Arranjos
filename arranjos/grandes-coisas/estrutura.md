@@ -1,10 +1,11 @@
 # Grandes Coisas (Ministério Atitude): versão coro + banda + metais, linha Pop/Black/Soul
 
-Status: **Etapa 1 pronta para revisão**: lead sheet (melodia do coro + cifra + letra) na forma
-nova, em Mib → Fá. Ver § 7 (pontos a conferir com a gravação).
+Status: **Etapa 2 pronta para revisão**: seção rítmica (teclado, órgão, guitarra, baixo,
+bateria) + harmonia gospel. Etapa 1 (lead sheet) revisada; ver § 8.
 
 Arquivos: `grandes-coisas-leadsheet.musicxml` (abrir no Sibelius) · `previa-leadsheet.pdf`
 (prévia: `python3 ../../ferramentas/previa_pdf.py grandes-coisas-leadsheet.musicxml previa-leadsheet.pdf`)
+· `grandes-coisas-ritmica.musicxml` + `previa-ritmica.pdf` (Etapa 2; gerar: `python3 gerar_ritmica.py`)
 · `gerar_leadsheet.py` (gera o lead sheet: `python3 gerar_leadsheet.py`)
 
 Referência de estilo: `docs/estilo-gospel-soul.md` (groove, coro, harmonia, vamp, metais).
@@ -254,3 +255,47 @@ Total: **147 compassos ≈ 3:55**.
    igual ao Pré 1. Se quiser a subida, entra na Etapa 3 (coro).
 7. **Vamp, Preparação e Final** (acordes Ab–Bb, C7sus4–C7, Bbm6) são provisórios:
    a harmonia gospel é definida na Etapa 2.
+
+## 8. Etapa 2: seção rítmica + harmonia gospel
+
+Arquivo: `grandes-coisas-ritmica.musicxml` (Coro guia, Teclado, Órgão, Guitarra, Baixo,
+Bateria). A harmonia fica em `gerar_leadsheet.py` (`CHORDS`) e vale para o lead sheet e para
+a banda. A cifra básica da canção continua no § 1.
+
+### Harmonia (Mib; o Refrão final e o Final são a mesma ideia em Fá)
+
+| Seção | Acordes (1 por compasso; "A → B" = troca no 3º tempo) | Ideia |
+|---|---|---|
+| Intro / Interlúdio | Eb(add9) · Eb/G · Abmaj9 · Ab6/9 · Bb/D · Bb/D → Cm7 · Abmaj9 · Bb7sus4 | Baixo subindo Eb–G–Ab; Bb7sus4 "gospel" no lugar do V |
+| Partes 1 e 2 | Eb(add9) ×2 · Bb/D ×2 · Cm7 · Cm7 → **Eb7/Bb** · Abmaj7 · **Ab/Bb** / … · Abmaj7 → **G7#9** | Baixo descendo C–Bb–Ab com V7/IV; o G7#9 no fim prepara o pré (Dó maior) |
+| Pré-refrão | C(add9) · G/B · Bb(add9) · F/A (×2) · Abmaj9 · Bb(add9) · Bb7sus4 | Mantém a **descida cromática C–B–Bb–A–Ab** da canção |
+| Refrão | Ebmaj9 · Eb/G · Abmaj9 · Bb7sus4 · **Cm9** · Cm7/Bb · Abmaj7 · Bb7sus4 · Cm7 · Bb/D · Abmaj7 · Bb → Bb7sus4 | A cabeça "coi-sas" (Ré) vira 7ª maior/9ª: cor de gospel sem mudar a melodia |
+| Vamp (Mib → Fá) | Abmaj9 · Bb(add9) (×4) → no último c. **C7sus4** · depois Bbmaj9 · C(add9) (×4) | IV–V em loop; modula pela dominante sus de Fá |
+| Preparação | Bb/C · C7sus4 | "Gospel slash" (IV/V) |
+| Final | F(add9) · Bbmaj9 · C → C7sus4 · F/A · **Gm7** · C → C7sus4 · **Dm7** · Bbmaj7 · **Bbm6** · F(add9) | Cada tag com uma cor nova; church ending com iv menor (Bbm6) |
+
+### Groove por seção
+
+| Seção | Bateria | Baixo | Teclado | Órgão | Guitarra |
+|---|---|---|---|---|---|
+| Intro / Interlúdio / Refrões | Chimbal (aberto no contratempo), caixa 2 e 4, bumbo 1 · "e" do 2 · 3 · "e" do 4; crash a cada 4 c. | Linha ativa (oitava, quinta) com **antecipação** do próximo acorde no "e" do 4 | Comping sincopado com antecipação | Pad (Leslie rápido) | Acordes longos, antecipados |
+| Parte 1 | Aro no 2 e 4, bumbo leve | Notas longas + antecipação | Pad leve | Pad suave | Entra só na 2ª metade: contratempos curtos |
+| Parte 2 | Caixa no 2 e 4 | Mais movimento | Comping médio | Pad | Contratempos |
+| Pré-refrão | Bumbo nos 4 tempos, caixa 2 e 4 | Colcheias na descida cromática | Colcheias curtas ("pumping") | Pad | Contratempos |
+| Vamp (Mib) | c. 1–2 bumbo + chimbal → c. 3 + caixa → c. 5 groove; virada no fim | c. 1–2 só o 1 + antecipação, depois linha cheia | Colcheias curtas | Entra no 3º c. | Entra no 5º c. |
+| Vamp (Fá) | Condução no ride, crash a cada 2 c. | Linha cheia | Colcheias | Pad | Comping sincopado |
+| Preparação | Hits (1, "e" do 2, 4) + virada de 1 compasso | Hits | Hits | — | Hits |
+| Final | Groove; na rit., meia pulsação (ride em semínimas, caixa no 3) e fermata | Mínimas → fermata | Mínimas → fermata | Pad → fermata | Mínimas → fermata |
+
+Viradas em semicolcheias (caixa → tons) no 2º meio do último compasso de cada seção.
+
+### Pontos para revisar (Etapa 2)
+1. **Caixa no 2 e 4** em relação aos acordes (o guia do Moises tinha no 1 e 3): conferir a
+   sensação com a gravação.
+2. **Antecipações** do baixo e das teclas no "e" do 4: é a levada do guia; se ficar
+   cheio demais com o coro, dá para manter só no baixo.
+3. **Reharmonizações mais ousadas** para aprovar: Eb7/Bb e G7#9 nas Partes, Cm9 no refrão,
+   Bbm6 no final.
+4. **Teclado e órgão** estão escritos como guia (voicings fechados, padrão por seção); o
+   tecladista pode e deve "abrir" e enfeitar. A guitarra está em notas reais (soa 8vb).
+5. O lead sheet (Etapa 1) foi regerado com essas cifras.

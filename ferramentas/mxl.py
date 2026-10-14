@@ -594,6 +594,8 @@ KIND = {
     "sus4": ("suspended-fourth", "sus4"), "7sus4": ("dominant", "7sus4"), "sus2": ("suspended-second", "sus2"),
     "add9": ("major", "add9"), "maj9": ("major-ninth", "maj9"), "6/9": ("major-sixth", "6/9"),
     "m9": ("minor-ninth", "m9"),
+    "9": ("dominant-ninth", "9"), "13": ("dominant-13th", "13"), "m11": ("minor-11th", "m11"),
+    "7#9": ("dominant", "7"), "7b9": ("dominant", "7"), "maj7#11": ("major-seventh", "maj7"),
 }
 
 
@@ -613,6 +615,9 @@ def parse_chord_symbol(sym):
     if q == "add9": degrees = [(9, 0, "add")]; text = ""
     if q == "7sus4": degrees = [(4, 0, "add"), (3, 0, "subtract")]
     if q == "6/9": degrees = [(9, 0, "add")]
+    if q == "7#9": degrees = [(9, 1, "add")]
+    if q == "7b9": degrees = [(9, -1, "add")]
+    if q == "maj7#11": degrees = [(11, 1, "add")]
     return root, kind, text, bass, degrees
 
 
@@ -620,6 +625,8 @@ INTERVALS = {
     "": [0, 4, 7], "m": [0, 3, 7], "7": [0, 4, 7, 10], "m7": [0, 3, 7, 10], "maj7": [0, 4, 7, 11],
     "m6": [0, 3, 7, 9], "6": [0, 4, 7, 9], "sus4": [0, 5, 7], "7sus4": [0, 5, 7, 10], "sus2": [0, 2, 7],
     "add9": [0, 4, 7, 2], "maj9": [0, 4, 7, 11, 2], "6/9": [0, 4, 7, 9, 2], "m9": [0, 3, 7, 10, 2],
+    "9": [0, 4, 7, 10, 2], "13": [0, 4, 7, 10, 2, 9], "m11": [0, 3, 7, 10, 2, 5],
+    "7#9": [0, 4, 7, 10, 3], "7b9": [0, 4, 7, 10, 1], "maj7#11": [0, 4, 7, 11, 6],
 }
 
 

@@ -41,27 +41,34 @@ for mark, title, length, key in FORM:
     n += length
 NBARS = n - 1
 
-# ------------------------------------------------------------------ harmonia
-INTRO = ["Eb", "Eb", "Ab", "Ab", "Bb/D", "Bb/D", "Ab", "Ab"]
-VERSO = ["Eb", "Eb", "Bb/D", "Bb/D", "Cm", "Cm", "Ab", "Ab"] * 2
-PRE = ["C", "G/B", "Bb", "F/A", "C", "G/B", "Bb", "F/A", "Ab", "Bb", "Bb"]
-REFRAO = ["Eb", "Eb", "Ab", "Bb", "Cm7", "Cm7", "Ab", "Bb", "Cm7", "Bb", "Ab", "Bb"]
-REFRAO_F = ["F", "F", "Bb", "C", "Dm7", "Dm7", "Bb", "C", "Dm7", "C", "Bb", "C"]
+# ------------------------------------------------------------------ harmonia (gospel, Etapa 2)
+# A cifra básica da canção (Etapa 0/1) está em estrutura.md § 1; aqui fica a versão do arranjo.
+# um item por compasso; tupla = dois acordes (o 2º entra no 3º tempo)
+INTRO = ["Eb(add9)", "Eb/G", "Abmaj9", "Ab6/9", "Bb/D", ("Bb/D", "Cm7"), "Abmaj9", "Bb7sus4"]
+VERSO = ["Eb(add9)", "Eb(add9)", "Bb/D", "Bb/D", "Cm7", ("Cm7", "Eb7/Bb"), "Abmaj7", "Ab/Bb",
+         "Eb(add9)", ("Eb(add9)", "Eb/G"), "Bb/D", "Bb/D", "Cm7", ("Cm7", "Eb7/Bb"), "Abmaj7",
+         ("Abmaj7", "G7#9")]
+PRE = ["C(add9)", "G/B", "Bb(add9)", "F/A", "C(add9)", "G/B", "Bb(add9)", "F/A",
+       "Abmaj9", "Bb(add9)", "Bb7sus4"]
+REFRAO = ["Ebmaj9", "Eb/G", "Abmaj9", "Bb7sus4", "Cm9", "Cm7/Bb", "Abmaj7", "Bb7sus4",
+          "Cm7", "Bb/D", "Abmaj7", ("Bb", "Bb7sus4")]
+REFRAO_F = ["Fmaj9", "F/A", "Bbmaj9", "C7sus4", "Dm9", "Dm7/C", "Bbmaj7", "C7sus4",
+            "Dm7", "C/E", "Bbmaj7", ("C", "C7sus4")]
 CHORDS = {
     "Intro": INTRO,
     "Parte 1": VERSO,
     "Pré-refrão": PRE,
     "Refrão": REFRAO,
-    "Interlúdio": INTRO,
+    "Interlúdio": ["Eb(add9)"] + INTRO[1:],
     "Parte 2": VERSO,
     "Pré-refrão 2": PRE,
-    "Refrão 2": REFRAO + ["Eb"] + REFRAO,
-    # modulação no último compasso do vamp: Bb -> C7sus4 (V de Fá) no 3º tempo
-    "Vamp": ["Ab", "Bb"] * 3 + ["Ab", ("Bb", "C7sus4")],
-    "Vamp (Fá)": ["Bb", "C"] * 4,
-    "Preparação": ["Bb/C", ("C7sus4", "C7")],
+    "Refrão 2": REFRAO + ["Eb(add9)"] + REFRAO,
+    "Vamp": ["Abmaj9", "Bb(add9)"] * 3 + ["Abmaj9", ("Bb(add9)", "C7sus4")],
+    "Vamp (Fá)": ["Bbmaj9", "C(add9)"] * 4,
+    "Preparação": ["Bb/C", "C7sus4"],
     "Refrão final": REFRAO_F,
-    "Final": ["F", "Bb", "C", "F", "Bb", "C", "Dm7", "Bb", "Bbm6", "F(add9)"],
+    "Final": ["F(add9)", "Bbmaj9", ("C", "C7sus4"), "F/A", "Gm7", ("C", "C7sus4"), "Dm7",
+              "Bbmaj7", "Bbm6", "F(add9)"],
 }
 
 # ------------------------------------------------------------------ melodia (altura do guia, em Sol)
