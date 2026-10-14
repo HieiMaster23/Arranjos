@@ -96,13 +96,16 @@ respostas ficam entre naipes (mulheres × homens, sopranos × resto).
 | 6 | **Parte 2** | 16 | Eb | **Homens em uníssono** (T+B, Dó3–Sib3; T pode ir 8va nos finais) na melodia; mulheres em "oohs"/respostas a 2 vozes | Sax em contracanto suave | mf |
 | 7 | **Pré 2** | 10 | Eb | **S-A-T-B** | Tutti cresc.; fill no fim | mf → f |
 | 8 | **Refrão 2 ×2** | 24 | Eb | Bloco; 2ª vez com as sopranos num contracanto agudo e A-T-B na melodia | Metais em bloco + hits | f |
-| 9 | **Breakdown → Vamp** "Eu vou cantar, eu vou celebrar" | 16 + 2 + 8 | Eb → **F** | Camadas a cada 4 c.: B+T (ostinato grave) → +A → +S (agudo); em Fá, tutti | Bateria + baixo + palmas; entram teclas e depois os metais; **lançamento em C7sus e modulação para Fá** | p → ff |
-| 10 | **"Todos dirão" + Refrão final** | 24 | **F** | **Mulheres chamam / homens respondem** ("Todos dirão!"), depois S-A-T-B no agudo | *Shout* dos metais | **ff** |
-| 11 | **Final** | 10 | F | Tag "Que grandes coisas…" ×3, a última em rit. com acorde aberto | Riff final + *church ending* com fermata e hit | ff |
-|  | **Total** | **≈ 164** | | | | **≈ 4:22** |
+| 9 | **Vamp** "Eu vou cantar, eu vou celebrar" | 8 | Eb → **F** | Entra direto no tempo 1 depois do "mim". Camadas a cada 2 c.: T+B (8vb) → +A → +S → tutti | Bateria + baixo + palmas; entram teclas e depois os metais; **modulação no último compasso** (Bb → C7sus4 no 3º tempo) | mp → f |
+| 10 | **Vamp em Fá** | 8 | **F** | Tutti | Banda e metais plenos | f |
+| 11 | **Preparação** | 2 | F | Anacruse "Gran-des" | Hit tutti + virada (Bb/C, C7sus4 → C7) | f → ff |
+| 12 | **Refrão final** | 12 | F | S-A-T-B no agudo; no "Todos dirão", mulheres chamam e homens respondem | *Shout* dos metais | **ff** |
+| 13 | **Final** | 10 | F | Tag "Que grandes coisas…" ×3, a última em rit. com acorde aberto | Riff final + *church ending* com fermata e hit | ff |
+|  | **Total** | **147** | | | | **≈ 3:55** |
 
-Se o tempo precisar bater mais justo com o original, dá para cortar no Refrão 2 (1× em
-vez de 2×) ou no vamp em Fá (8 c. em vez de 16).
+Decisão de 14/10: vamp de 8 c. em Mib, modulação, 8 c. em Fá, preparação de 2 c. e direto
+ao Refrão final (a seção separada "Todos dirão" saiu). Ficou ≈ 20 s mais curto que o original;
+se quiser compensar, dá para repetir o Refrão final (×2) ou alongar o Final.
 
 ## 4. Etapas de trabalho
 
@@ -215,14 +218,13 @@ Si2–Lá3 (grave demais) e Mi é um tom pior para os metais.
 | F | Parte 2 | 56–71 | 16 | Mib | Eb Bb/D Cm Ab |
 | G | Pré-refrão 2 | 72–82 | 11 | Mib | C G/B Bb F/A Ab |
 | H | Refrão 2 | 83–107 | 25 | Mib | Eb Ab Bb Cm7 |
-| I | Vamp | 108–123 | 16 | Mib | Eb Ab Bb |
-| — | Lançamento | 124–125 | 2 | Mib | C7sus4 C7 |
-| J | Vamp (Fá) | 126–133 | 8 | Fá | Bb C |
-| K | Todos dirão | 134–142 | 9 | Fá | Dm7 C Bb F |
-| L | Refrão final | 143–154 | 12 | Fá | F Bb C Dm7 |
-| M | Final | 155–164 | 10 | Fá | F Bb C Dm7 Bbm6 F(add9) |
+| I | Vamp | 108–115 | 8 | Mib | Ab Bb Bb→C7sus4 |
+| J | Vamp (Fá) | 116–123 | 8 | Fá | Bb C |
+| K | Preparação | 124–125 | 2 | Fá | Bb/C C7sus4→C7 |
+| L | Refrão final | 126–137 | 12 | Fá | F Bb C Dm7 |
+| M | Final | 138–147 | 10 | Fá | F Bb C Dm7 Bbm6 F(add9) |
 
-Total: **164 compassos ≈ 4:22**.
+Total: **147 compassos ≈ 3:55**.
 
 ### Como a melodia foi limpa
 - A melodia está escrita na altura das **vozes femininas**. Os homens cantam 8vb (Parte 2 e
@@ -234,7 +236,7 @@ Total: **164 compassos ≈ 4:22**.
   colcheia), e mantive isso porque é a "levada" da música. O baixo também antecipa as
   mudanças de acorde em colcheia.
 - O refrão terminava sobre a chegada do acorde ("mim"): a nota fica segura no 1º compasso da
-  seção seguinte (Interlúdio, Vamp, Final), e a anacruse "Gran-des" entra nos tempos 3 e 4 do
+  seção seguinte (Interlúdio, Final; no fim do Refrão 2 o "mim" é curto e o Vamp entra no tempo 1), e a anacruse "Gran-des" entra nos tempos 3 e 4 do
   compasso de chegada.
 
 ### Pontos a conferir com a gravação (§ 7)
@@ -250,5 +252,5 @@ Total: **164 compassos ≈ 4:22**.
 5. **Parte 2:** usei a mesma letra da Parte 1 (a cifra só mostra uma estrofe).
 6. **Pré-refrão 2:** no original ele sobe até Lá ("eu vou celebrar"); no lead sheet ficou
    igual ao Pré 1. Se quiser a subida, entra na Etapa 3 (coro).
-7. **Vamp, Lançamento e Final** (acordes Ab–Bb, C7sus4–C7, Bbm6) são provisórios:
+7. **Vamp, Preparação e Final** (acordes Ab–Bb, C7sus4–C7, Bbm6) são provisórios:
    a harmonia gospel é definida na Etapa 2.

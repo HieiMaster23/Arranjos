@@ -28,10 +28,9 @@ FORM = [
     ("F", "Parte 2", 16, "Eb"),
     ("G", "Pré-refrão 2", 11, "Eb"),
     ("H", "Refrão 2", 25, "Eb"),
-    ("I", "Vamp", 16, "Eb"),
-    ("", "Lançamento", 2, "Eb"),
+    ("I", "Vamp", 8, "Eb"),
     ("J", "Vamp (Fá)", 8, "F"),
-    ("K", "Todos dirão", 9, "F"),
+    ("K", "Preparação", 2, "F"),
     ("L", "Refrão final", 12, "F"),
     ("M", "Final", 10, "F"),
 ]
@@ -57,10 +56,10 @@ CHORDS = {
     "Parte 2": VERSO,
     "Pré-refrão 2": PRE,
     "Refrão 2": REFRAO + ["Eb"] + REFRAO,
-    "Vamp": ["Eb", "Eb"] + ["Ab", "Bb"] * 7,
-    "Lançamento": ["C7sus4", "C7"],
+    # modulação no último compasso do vamp: Bb -> C7sus4 (V de Fá) no 3º tempo
+    "Vamp": ["Ab", "Bb"] * 3 + ["Ab", ("Bb", "C7sus4")],
     "Vamp (Fá)": ["Bb", "C"] * 4,
-    "Todos dirão": ["Dm7", "C", "Bb", "C"] * 2 + ["F"],
+    "Preparação": ["Bb/C", ("C7sus4", "C7")],
     "Refrão final": REFRAO_F,
     "Final": ["F", "Bb", "C", "F", "Bb", "C", "Dm7", "Bb", "Bbm6", "F(add9)"],
 }
@@ -194,17 +193,12 @@ refrao(START["Refrão"])                      # "mim" segura no 1º c. do Interl
 verso(START["Parte 2"])
 pre(START["Pré-refrão 2"])
 refrao(START["Refrão 2"], pickup_next=True)  # c. 13 = chegada + anacruse da repetição
-refrao(START["Refrão 2"] + 13)              # "mim" segura no 1º c. do Vamp
-for k in range(7):
-    eu_vou_cantar(START["Vamp"] + 2 + 2 * k)
+refrao(START["Refrão 2"] + 13, last_short=True)  # "mim" curto: o vamp entra no tempo 1
+for k in range(4):
+    eu_vou_cantar(START["Vamp"] + 2 * k)
 for k in range(4):
     eu_vou_cantar(START["Vamp (Fá)"] + 2 * k)
-K = START["Todos dirão"]
-todos_dirao(K)
-que_grandes(K + 1, short=True)
-todos_dirao(K + 4)
-que_grandes(K + 5)                          # segura no c. de chegada (K+8)
-gran_des(K + 8)
+gran_des(START["Preparação"] + 1)           # anacruse do Refrão final
 refrao(START["Refrão final"])               # segura no 1º c. do Final
 M = START["Final"]
 que_grandes(M)                               # tag 1
@@ -301,16 +295,15 @@ QUEM = {  # quem canta (texto no início de cada seção)
     "Parte 2": "Homens (T+B) em uníssono, 8vb · mulheres em \"oohs\"",
     "Pré-refrão 2": "S-A-T-B",
     "Refrão 2": "S-A-T-B (2ª vez: contracanto das sopranos)",
-    "Vamp": "Camadas: T+B (8vb) → +A → +S",
-    "Lançamento": "Hit tutti + virada",
+    "Vamp": "Camadas a cada 2 c.: T+B (8vb) → +A → +S → tutti",
     "Vamp (Fá)": "Tutti",
-    "Todos dirão": "Mulheres chamam · homens respondem",
+    "Preparação": "Hit tutti + virada",
     "Refrão final": "S-A-T-B, ff",
     "Final": "Tag 3× (rit. na 3ª)",
 }
 DYN = {"Intro": "f", "Parte 1": "mp", "Pré-refrão": "mp", "Refrão": "f", "Interlúdio": "f",
-       "Parte 2": "mf", "Pré-refrão 2": "mf", "Refrão 2": "f", "Vamp": "p", "Vamp (Fá)": "ff",
-       "Todos dirão": "ff", "Refrão final": "ff"}
+       "Parte 2": "mf", "Pré-refrão 2": "mf", "Refrão 2": "f", "Vamp": "mp", "Vamp (Fá)": "f",
+       "Refrão final": "ff"}
 
 
 def main():
@@ -330,11 +323,18 @@ def main():
             coro.dir(b, "dyn", DYN[title])
         sc.barlines[b - 1] = "light-light" if b > 1 else None
         for i, sym in enumerate(CHORDS[title]):
-            coro.harm(b + i, sym)
+            if isinstance(sym, tuple):   # dois acordes no compasso (2º no 3º tempo)
+                coro.harm(b + i, sym[0])
+                coro.harm(b + i, sym[1], offset=8)
+            else:
+                coro.harm(b + i, sym)
         assert len(CHORDS[title]) == length, title
     sc.barlines = {k: v for k, v in sc.barlines.items() if v and k >= 1}
     sc.barlines[START["Vamp (Fá)"] - 1] = "light-light"
     coro.dir(START["Final"] + 6, "text", "rit.")
+    coro.dir(START["Refrão final"] + 8, "text", "Mulheres chamam · homens respondem")
+    coro.dir(START["Vamp"], "cresc")
+    coro.dir(START["Vamp"] + 7, "wedge-stop", offset=12)
     meas = build_measures()
     last = meas[NBARS].split()
     last[-1] = last[-1] + "!"   # fermata no último "mim"
