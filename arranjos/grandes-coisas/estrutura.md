@@ -16,7 +16,7 @@ numeração de compassos deles.
 |---|---|
 | Tonalidade | **Sol maior** (cifra e MIDI concordam) |
 | Grade do Moises | 4/4, ♩ = 150, 160 compassos (≈ 4:15). **Cada acorde dura 2 compassos** dessa grade |
-| Andamento real | **A confirmar.** A caixa cai em todo tempo 1 e 3 da grade, e a melodia entra quase sempre no contratempo. As duas leituras possíveis são ♩ = 150 com acorde a cada 2 c. ou ♩ = 75 com 1 acorde por compasso (a grade do Moises "dobrada"). A ♩ = 75, cada verso da letra cabe em 1 compasso, o que parece mais natural |
+| Andamento real | **♩ = 150** (confirmado pelo usuário em 14/10: "a música é animada mesmo"). Cada verso da letra ocupa 2 compassos |
 | Extensão da melodia | Mi3–Lá4 no guia (voz masculina). Em Sol, para o coro feminino: Mi4–Lá5; o refrão fica entre Ré4/Ré5 e Sol5 |
 | Groove do guia | Teclado em colcheias contínuas (Harmonia 4), baixo em colcheias na fundamental, bateria pop reta |
 
@@ -55,7 +55,7 @@ numeração de compassos deles.
 
 ## 2. Conceito da versão
 
-- **Coro S-A-T + solista** na frente; banda gospel (bateria, baixo, Hammond, piano/Rhodes,
+- **Coro S-A-T-B (B opcional) + solista** na frente; banda gospel (bateria, baixo, Hammond, piano/Rhodes,
   guitarra) como motor; **horn section** (Tpts, Saxes, Tbns) com hits e riff original;
   **cordas e madeiras** como camada "cinema" (pads, runs, brilho).
 - O material da canção já tem três ganchos fortes para o estilo:
@@ -77,7 +77,7 @@ Durações em ciclos de acordes; os compassos exatos saem na Etapa 1.
 | 1 | **Intro** | G | — (ou "oohs" do coro no fim) | Riff original de metais sobre G – C – D/F# – C, hits com a bateria; cordas em pad | **f** |
 | 2 | **Parte 1** | G | **Solista** | Banda enxuta (bateria *pocket*, baixo, Rhodes); Hammond em pad; cordas *pp* | mp |
 | 3 | **Pré 1** | G | **Coro feminino em uníssono** entra | Cordas descem com o baixo cromático; cresc. | mp → mf |
-| 4 | **Refrão 1** | G | **Coro S-A-T** em bloco | Metais respondem nos respiros; pandeirola | mf/f |
+| 4 | **Refrão 1** | G | **Coro S-A-T(B)** em bloco | Metais respondem nos respiros; pandeirola | mf/f |
 | 5 | **Interlúdio** | G | — | Riff dos metais (versão curta) | f |
 | 6 | **Parte 2** | G | **Coro em uníssono** na melodia + solista *ad lib* | Saxes em contracanto suave; cordas "oohs" | mf |
 | 7 | **Pré 2** | G | **Coro em 2–3 vozes** | Tutti cresc.; run de cordas no fim | mf → f |
@@ -93,7 +93,7 @@ Durações em ciclos de acordes; os compassos exatos saem na Etapa 1.
 | **0. Análise + estrutura** | Este documento + memória de estilo gospel | `.md` (**feito**) |
 | **1. Lead sheet limpo** | Melodia corrigida (o Moises tem ruído e deslocamentos), cifra e letra, no tom e andamento definidos, já na forma nova (vamp, modulações) | MusicXML + PDF de prévia |
 | **2. Seção rítmica + harmonia gospel** | Reharmonização por seção, linha de baixo, groove de bateria por seção, cifra do teclado | MusicXML (Rhythm, Baixo, Bateria, Piano) |
-| **3. Coro** | Arranjo S-A-T(B) com letra, respirações e cortes, seção por seção | MusicXML (pautas de coro + solista) |
+| **3. Coro** | Arranjo S-A-T-B (B opcional) com letra, respirações e cortes, seção por seção | MusicXML (pautas de coro + solista) |
 | **4. Metais e saxes** | Riff da intro, hits, respostas, shout chorus | MusicXML (grade parcial) |
 | **5. Cordas, madeiras e percussão** | Pads, runs, dobras, percussão por seção | Grade completa |
 | **6. Revisão e partes** | Playback (Sibelius + NotePerformer), partes individuais, substituições, redução de cordas | MusicXML + partes |
@@ -102,11 +102,50 @@ Em cada etapa você ouve/revisa antes de seguirmos para a próxima.
 
 ## 5. Decisões pendentes (para fechar a Etapa 0)
 
-1. **Andamento/sentimento:** ♩ ≈ 75 (1 acorde por compasso) ou ♩ ≈ 150? Qual BPM da gravação
-   de referência?
-2. **Tonalidade inicial:** Sol (original), ou Fá/Láb para acomodar melhor o coro? Proposta:
-   Sol, com o vamp subindo Sol → Láb → Lá.
-3. **Coro:** S-A-T (padrão gospel) ou S-A-T-B? Quantas pessoas, mais ou menos?
+1. ~~Andamento~~: **♩ = 150** (decidido).
+2. **Tonalidade:** em discussão, ver § 6.
+3. ~~Coro~~: **S-A-T-B** (decidido). O baixo é escrito para cantar, mas a música tem que fechar sem ele: nada de essencial só no baixo (S-A-T completam o acorde; o baixo dobra a fundamental ou faz respostas/ostinatos graves).
 4. **Orquestra disponível:** formação completa (madeiras, saxes, metais, cordas) ou um grupo
    menor? Tem órgão/Hammond, guitarra e Rhodes na banda?
 5. **Duração/forma:** manter a forma completa (≈ 5 min com o vamp) ou uma versão mais curta?
+
+## 6. Tonalidade para o coro (opções em discussão)
+
+### Extensão da melodia por seção (altura do guia, voz masculina)
+
+| Seção | Extensão | Núcleo (80 % do tempo) | Nota média |
+|---|---|---|---|
+| Partes 1 e 2 (solista) | Mi3–Mi4 | Mi3–Ré4 | Lá3 |
+| Pré-refrão | Lá3–**Lá4** | Lá3–Sol4 | Mib4 |
+| Refrão | Fá#3–Sol4 | Sol3–Sol4 | Dó4 |
+| Breakdown ("Eu vou cantar…") | Si3–Sol4 | Dó4–Sol4 | Mi4 |
+
+O problema de Sol não é o refrão em si (Sol–Sol). O problema é que **não sobra espaço para
+subir**: o pré chega a Lá4 (Lá5 nas sopranos), e qualquer modulação no vamp leva o coro para
+Lá5/Si5. Além disso, os versos ficam graves para o solista se ele for homem e o tom baixar
+muito. A decisão depende de **quem canta os versos** e de **para onde o vamp sobe**.
+
+### Opções (melodia nas sopranos; o coro canta do pré em diante)
+
+| Opção | Pré (pico) | Refrão (sopranos) | Versos (solista homem / mulher) | Orquestra | Comentário |
+|---|---|---|---|---|---|
+| **A. Fá → Sol** (recomendada) | Sol5 | Fá4–Fá5 | Ré3–Dó4 / Ré4–Dó5 | Ótima (Fá e Sol) | Começa 1 tom abaixo e **termina no tom original** no clímax. O vamp sobe Fá → Sol (1 tom) ou Fá → Fá# → Sol (meio tom duas vezes; Fá# fica pesado para a orquestra, mas dura poucos compassos) |
+| **B. Mib → Fá (→ Sol)** | Fá5 | Mib4–Mib5 | Dó3–Sib3 (grave) / Dó4–Sib4 | Ótima para metais | Mais confortável para o coro e com mais espaço para subir 2×. Só funciona bem com **solista mulher** (ou homem barítono com versos reescritos) |
+| C. Mi → Fá → Fá# | Fá#5 | Mi4–Mi5 | Dó#3–Si3 / Dó#4–Si4 | Ruim (Mi e Fá# para sopros em Sib) | Escada clássica de meio tom, mas cansativa para os sopros |
+| D. Sol sem modular | Lá5 | Sol4–Sol5 | Mi3–Ré4 / Mi4–Ré5 | Boa | Mantém o original, mas perde o recurso de subida no vamp |
+
+### Outras ideias que ajudam o coro em qualquer tom
+- **O pico do pré (Lá4 do guia) só para as sopranos**, com as contraltos numa harmonia abaixo
+  (3ª ou 6ª) e os tenores no uníssono das contraltos.
+- **Melodia passeando pelos naipes:** Parte 2 com contraltos + tenores na melodia em
+  uníssono (região média dos dois); refrão com a melodia nas sopranos e o bloco abaixo.
+- **Depois de cada modulação**, o soprano sobe e o tenor fica parado ou desce (voicing
+  "aberto por cima"), para os homens não estourarem.
+- **Vamp em registro médio:** "Eu vou cantar, eu vou celebrar" fica num âmbito de 5ª;
+  dá para escrever as camadas de baixo para cima (tenor → contralto → soprano) e só a
+  última camada vai ao agudo.
+
+### E o baixo do coro?
+Com o B na fundamental, Fá e Sol são tons muito bons para os baixos (Fá2–Ré4 cobre tudo, e
+o pedal de tônica fica em Fá2/Fá3). Em Mib, o Mib2 já é grave para baixo amador, então o
+baixo fica mais vezes na oitava de cima. Isso conta mais um ponto para a **opção A**.
