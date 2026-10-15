@@ -83,7 +83,7 @@ def transpose(p, diatonic, chromatic):
 # ---------------------------------------------------------------- tokens
 class Ev:
     __slots__ = ("pitches", "dur", "tie", "tie_stop", "tie_set", "tie_stop_set", "slur_start", "slur_stop", "arts", "drum", "grace",
-                 "lyric", "syllabic")
+                 "lyric", "syllabic", "lyric_no")
 
     def __init__(self):
         self.pitches = []  # vazio = pausa
@@ -97,12 +97,15 @@ class Ev:
         self.drum = None
         self.lyric = None  # sílaba ("Gran-" = continua com hífen; "_" = sílaba vazia)
         self.syllabic = None
+        self.lyric_no = 1  # linha da letra ("2:sílaba" no token = 2ª linha)
 
 
 def parse_token(tok):
     e = Ev()
     if "|" in tok:
         tok, e.lyric = tok.split("|", 1)
+        if len(e.lyric) > 2 and e.lyric[0].isdigit() and e.lyric[1] == ":":
+            e.lyric_no, e.lyric = int(e.lyric[0]), e.lyric[2:]
     body, dur = tok.rsplit("/", 1)
     flags = ""
     while dur and not dur[-1].isdigit():
@@ -154,6 +157,7 @@ class Instrument:
         self.sound = sound
         self.sound_id = sound_id  # MusicXML <instrument-sound> (o Sibelius usa para escolher o instrumento)
         self.gm_key = gm_key  # percussão de 1 som: nota GM
+        self.stems = False  # True: voz 1 com haste para cima, voz 2 para baixo (pauta com 2 vozes)
         # measures[n] = {"staff": {staff_no: [voice_events,...]}, "dirs": [...], "harm": [...]}
         self.measures = {}
 
@@ -374,19 +378,21 @@ class Score:
                         prev[(staff, vi)] = e
 
     def _syllabify(self, p):
-        """Define begin/middle/end/single das sílabas (voz 1 de cada pauta, em ordem)."""
+        """Define begin/middle/end/single das sílabas (cada voz de cada pauta, em ordem)."""
         for staff in range(1, p.staves + 1):
-            cont = False
+            cont = {}
             for n in range(1, self.n + 1):
                 voices = p.m(n)["staff"].get(staff)
                 if not voices:
                     continue
-                for e in voices[0]:
-                    if not e.lyric:
-                        continue
-                    hy = e.lyric.endswith("-")
-                    e.syllabic = ("middle" if hy else "end") if cont else ("begin" if hy else "single")
-                    cont = hy
+                for vi, evs in enumerate(voices):
+                    for e in evs:
+                        if not e.lyric:
+                            continue
+                        hy = e.lyric.endswith("-")
+                        c = cont.get(vi, False)
+                        e.syllabic = ("middle" if hy else "end") if c else ("begin" if hy else "single")
+                        cont[vi] = hy
 
     def _directions_xml(self, p, md, staff, offset_from, offset_to, cur):
         """Gera direções (dinâmica, texto, wedges) e cifras com offset no intervalo."""
@@ -497,6 +503,8 @@ class Score:
                 x += f'<stem>{h[5]}</stem>'
                 if h[4]:
                     x += f'<notehead>{h[4]}</notehead>'
+            elif p.stems:
+                x += f'<stem>{"up" if voice in (1, 5) else "down"}</stem>'
             elif p.sound == "slash":
                 x += '<stem>none</stem><notehead>slash</notehead>'
             x += stf
@@ -509,8 +517,9 @@ class Score:
             if t_start:
                 nots.append('<tied type="start"/>')
             if hi == 0:
-                if e.slur_start: nots.append('<slur type="start" number="1"/>')
-                if e.slur_stop: nots.append('<slur type="stop" number="1"/>')
+                sn = 1 if voice in (1, 5) else 2  # numeração própria por voz (2 vozes na pauta)
+                if e.slur_start: nots.append(f'<slur type="start" number="{sn}"/>')
+                if e.slur_stop: nots.append(f'<slur type="stop" number="{sn}"/>')
                 arts = [a for a in ("accent", "strong-accent", "staccato", "tenuto") if a in e.arts]
                 if arts:
                     nots.append('<articulations>' + ''.join(f'<{a}/>' for a in arts) + '</articulations>')
@@ -524,7 +533,7 @@ class Score:
                 txt = e.lyric[:-1] if e.lyric.endswith("-") else e.lyric
                 # "do‿o" = elisão (duas sílabas na mesma nota)
                 body = '<elision>‿</elision>'.join(f'<text>{escape(t)}</text>' for t in txt.split("‿"))
-                x += f'<lyric number="1"><syllabic>{e.syllabic or "single"}</syllabic>{body}</lyric>'
+                x += f'<lyric number="{e.lyric_no}"><syllabic>{e.syllabic or "single"}</syllabic>{body}</lyric>'
             x += '</note>'
             o.append(x)
         return o

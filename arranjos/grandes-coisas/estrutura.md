@@ -6,7 +6,9 @@ Arquivos: `grandes-coisas-leadsheet.musicxml` (abrir no Sibelius) · `previa-lea
 (prévia: `python3 ../../ferramentas/previa_pdf.py grandes-coisas-leadsheet.musicxml previa-leadsheet.pdf`)
 · `grandes-coisas-ritmica.musicxml` + `previa-ritmica.pdf` (Etapa 2; gerar: `python3 gerar_ritmica.py`)
 · `grandes-coisas-coro.musicxml` + `previa-coro.pdf` (Etapa 3, só o coro) e
-`grandes-coisas-grade.musicxml` (coro SATB + banda); gerar os dois: `python3 gerar_coro.py`
+`grandes-coisas-grade.musicxml` (coro SATB + banda) e `grandes-coisas-coro-reduzido.musicxml` +
+`previa-coro-reduzido.pdf` (SATB em 2 pautas: S/A na clave de sol, T/B na clave de fá); gerar todos:
+`python3 gerar_coro.py`
 · `gerar_leadsheet.py` (gera o lead sheet: `python3 gerar_leadsheet.py`)
 
 Referência de estilo: `docs/estilo-gospel-soul.md` (groove, coro, harmonia, vamp, metais).
@@ -310,6 +312,12 @@ Viradas em semicolcheias (caixa → tons) no 2º meio do último compasso de cad
 Arquivos: `grandes-coisas-coro.musicxml` (S, A, T, B com letra) e `grandes-coisas-grade.musicxml`
 (coro + Teclado, Órgão, Guitarra, Baixo, Bateria). Os dois foram validados contra o XSD oficial
 do MusicXML 3.1. O Tenor usa clave de sol 8vb.
+
+### Redução SATB (2 pautas)
+`grandes-coisas-coro-reduzido.musicxml`: Mulheres (S haste para cima, A para baixo) e Homens
+(T para cima, B para baixo). A letra aparece uma vez quando as duas vozes cantam junto; quando
+a voz de baixo canta outro texto/ritmo, ela vai para a 2ª linha (ou para a 1ª se a de cima
+estiver calada).
 
 ### Texturas
 

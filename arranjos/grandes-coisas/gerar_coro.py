@@ -540,7 +540,55 @@ def main():
     g.group(4, 8, "bracket", "Banda")
     R.fill_band(band)
     g.write(os.path.join(HERE, "grandes-coisas-grade.musicxml"))
-    print("ok: grandes-coisas-coro.musicxml, grandes-coisas-grade.musicxml")
+    build_reduced(ev)
+    print("ok: grandes-coisas-coro.musicxml, grandes-coisas-grade.musicxml, grandes-coisas-coro-reduzido.musicxml")
+
+
+def reduce_lyrics(upper, lower):
+    """Letra da voz de baixo na pauta reduzida: some se repete a de cima (mesmo início e
+    sílaba); vai para a 1ª linha se a voz de cima está calada; senão, 2ª linha."""
+    starts = {a: syl for a, d, x, nm, syl, fl in upper}
+    spans = [(a, a + d) for a, d, *_ in upper]
+    out = []
+    for a, d, x, nm, syl, fl in lower:
+        if syl != "_":
+            if starts.get(a) == syl:
+                syl = "_"
+            elif any(s0 <= a < s1 for s0, s1 in spans):
+                syl = "2:" + syl
+        out.append((a, d, x, nm, syl, fl))
+    return out
+
+
+def build_reduced(ev):
+    sc = Score("Grandes Coisas", "Ministério Atitude", "Coro SATB · redução (2 pautas)", NBARS,
+               beats_div=BAR, time=(4, 4))
+    fem = sc.add(Instrument("Mulheres (S / A)", "S/A", midi_program=53, sound_id="voice.soprano"))
+    mas = sc.add(Instrument("Homens (T / B)", "T/B", clef="F", midi_program=53, sound_id="voice.tenor"))
+    fem.stems = mas.stems = True
+    sc.group(0, 1, "bracket", "Coro")
+    setup(sc, fem)
+    for p, (hi, lo) in ((fem, ("S", "A")), (mas, ("T", "B"))):
+        up = to_measures(ev[hi])
+        down = to_measures(reduce_lyrics(ev[hi], ev[lo]))
+        for mark, title, length, key in FORM:
+            b = START[title]
+            txt = " · ".join(f"{v}: {TXT[v][title]}" for v in (hi, lo) if title in TXT[v])
+            if txt:
+                p.dir(b, "text", txt)
+            dyn = LS.DYN.get(title)
+            if dyn:
+                p.dir(b, "dyn", dyn)
+        p.dir(START["Final"] + 6, "text", "rit.")
+        for b in range(1, NBARS + 1):
+            full_rest = f"r/{BAR}"
+            if up[b] == full_rest and down[b] == full_rest:
+                p.put(b, up[b])
+            else:
+                p.put(b, up[b], down[b])
+    out = os.path.join(HERE, "grandes-coisas-coro-reduzido.musicxml")
+    sc.write(out)
+    return out
 
 
 def fill_choir(p, v, meas):
