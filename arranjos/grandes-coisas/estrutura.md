@@ -335,6 +335,9 @@ Refrão 2 iguais; dissonância só "aqui e ali".
   porque o vamp entra no tempo 1).
 - Nota que atravessa uma troca de acorde (antecipações) usa o acorde que soa por mais tempo e,
   se possível, uma nota comum aos dois.
+- **Movimento contrário nos refrões** (pedido de 15/10): quando a melodia anda, A ou T podem
+  andar no sentido oposto por grau curto (≈ 1 por frase; de 2 para 8 casos no Refrão 1). No
+  resto, as vozes continuam paradas.
 
 ### Texturas
 

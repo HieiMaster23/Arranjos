@@ -227,6 +227,7 @@ def harmonize():
     repetir a nota, cantam a tríade (tensão só em color_spot) e não cruzam."""
     ev = {v: [] for v in VOZES}
     prev = {v: None for v in VOZES}
+    prev_m = None
     for g in syllable_groups(melody_events()):
         start, end, m = g["start"], g["end"], g["m"]
         bar0, pos0 = start // BAR + 1, start % BAR
@@ -248,8 +249,9 @@ def harmonize():
         syms = [sym] + [x for x, _d in spans if x != sym]
         color = color_spot(bar0, pos0)
         hv = [v for v in ("A", "T") if roles[v] in ("below", "below2")]
+        contra = sec(bar0)[0] in ("Refrão", "Refrão 2", "Refrão final")
         if hv:
-            sol = choose(m, sym, syms, hv, roles, prev, color)
+            sol = choose(m, sym, syms, hv, roles, prev, color, prev_m if contra else None)
             for v, x in sol.items():
                 ev[v].append((start, end - start, x, spell(x, sym, bar0), g["syl"], ""))
                 prev[v] = x
@@ -271,10 +273,11 @@ def harmonize():
             x = below(m - 12, sym, bar0, prev["B"], RANGE["B"][0], RANGE["B"][1])
             ev["B"].append((start, end - start, x, spell(x, sym, bar0), g["syl"], ""))
             prev["B"] = x
+        prev_m = m
     return ev
 
 
-def choose(m, sym, syms, hv, roles, prev, color):
+def choose(m, sym, syms, hv, roles, prev, color, prev_m=None):
     pcs, r, b, *_ = chord_pcs(sym)
     triad = set(pcs[:3]) | {b}
     allowed = set(pcs) if color else triad
@@ -307,6 +310,9 @@ def choose(m, sym, syms, hv, roles, prev, color):
                 if prev.get(k) is not None:
                     d = abs(x - prev[k])
                     cost += 0 if d == 0 else 1.5 * d + 1   # repetir a nota é o mais fácil
+                    # refrões: um pouco de movimento contrário à melodia (grau curto)
+                    if prev_m is not None and m != prev_m and (x - prev[k]) * (m - prev_m) < 0 and d <= 4:
+                        cost -= 4
                 cost += sum(20 for ch in later if x % 12 not in ch)  # a nota segura precisa caber nos dois acordes
                 if k == "T" and x > 64:
                     cost += 4 * (x - 64)
