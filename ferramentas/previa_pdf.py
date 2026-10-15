@@ -29,6 +29,8 @@ def main(src, out):
         svg = re.sub(r'<tspan font-family="Leipzig" font-size="(\d+)px">([^<]*)</tspan>',
                      lambda m: '<tspan font-size="405px">' + "".join(SUB.get(c, c) for c in m.group(2)) + '</tspan>',
                      svg)
+        # cifras: o Verovio repete os <degree> já contidos no nome do acorde
+        svg = svg.replace("sus4(4no3)", "sus4").replace("6/9(9)", "6/9")
         pdf = cairosvg.svg2pdf(bytestring=svg.encode())
         for pg in pypdf.PdfReader(io.BytesIO(pdf)).pages:
             w.add_page(pg)

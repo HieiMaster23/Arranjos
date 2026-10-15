@@ -517,16 +517,38 @@ def setup(sc, parts_first):
             sc.barlines[b - 1] = "light-light"
 
 
+def add_piano(sc):
+    """Piano de acompanhamento (o mesmo teclado da seção rítmica) com a cifra gospel."""
+    pn = sc.add(Instrument("Piano", "Pno.", staves=2, clefs=["G", "F"], midi_program=1,
+                           sound_id="keyboard.piano"))
+    for _m, title, _l, _k in FORM:
+        b = START[title]
+        if title in R.TXT["Teclado"]:
+            pn.dir(b, "text", R.TXT["Teclado"][title])
+        dyn = LS.DYN.get(title)
+        if dyn:
+            pn.dir(b, "dyn", dyn)
+    for bar, items in R.CH.items():
+        for pos, sym in items:
+            pn.harm(bar, sym, offset=pos)
+    rh, lh = R.build_piano()
+    for b in range(1, NBARS + 1):
+        pn.put(b, rh[b], staff=1)
+        pn.put(b, lh[b], staff=2)
+    return pn
+
+
 def main():
     ev, meas = build_choir()
     report(ev)
     # --- só o coro
-    sc = Score("Grandes Coisas", "Ministério Atitude", "Coro SATB · Etapa 3", NBARS, beats_div=BAR, time=(4, 4))
+    sc = Score("Grandes Coisas", "Ministério Atitude", "Coro SATB + piano · Etapa 3", NBARS, beats_div=BAR, time=(4, 4))
     parts = choir_parts(sc)
     sc.group(0, 3, "bracket", "Coro")
     setup(sc, parts["S"])
     for v, p in parts.items():
         fill_choir(p, v, meas[v])
+    add_piano(sc)
     sc.write(os.path.join(HERE, "grandes-coisas-coro.musicxml"))
     # --- grade completa
     g = Score("Grandes Coisas", "Ministério Atitude", "Coro SATB + banda · grade (Etapas 1–3)", NBARS,
@@ -561,7 +583,7 @@ def reduce_lyrics(upper, lower):
 
 
 def build_reduced(ev):
-    sc = Score("Grandes Coisas", "Ministério Atitude", "Coro SATB · redução (2 pautas)", NBARS,
+    sc = Score("Grandes Coisas", "Ministério Atitude", "Coro SATB (redução) + piano", NBARS,
                beats_div=BAR, time=(4, 4))
     fem = sc.add(Instrument("Mulheres (S / A)", "S/A", midi_program=53, sound_id="voice.soprano"))
     mas = sc.add(Instrument("Homens (T / B)", "T/B", clef="F", midi_program=53, sound_id="voice.tenor"))
@@ -586,6 +608,7 @@ def build_reduced(ev):
                 p.put(b, up[b])
             else:
                 p.put(b, up[b], down[b])
+    add_piano(sc)
     out = os.path.join(HERE, "grandes-coisas-coro-reduzido.musicxml")
     sc.write(out)
     return out

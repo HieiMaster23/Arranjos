@@ -311,13 +311,13 @@ Viradas em semicolcheias (caixa → tons) no 2º meio do último compasso de cad
 
 ## 9. Etapa 3: coro SATB
 
-Arquivos: `grandes-coisas-coro.musicxml` (S, A, T, B com letra) e `grandes-coisas-grade.musicxml`
+Arquivos: `grandes-coisas-coro.musicxml` (S, A, T, B com letra + piano com cifra) e `grandes-coisas-grade.musicxml`
 (coro + Teclado, Órgão, Guitarra, Baixo, Bateria). Os dois foram validados contra o XSD oficial
 do MusicXML 3.1. O Tenor usa clave de sol 8vb.
 
 ### Redução SATB (2 pautas)
 `grandes-coisas-coro-reduzido.musicxml`: Mulheres (S haste para cima, A para baixo) e Homens
-(T para cima, B para baixo). A letra aparece uma vez quando as duas vozes cantam junto; quando
+(T para cima, B para baixo), mais o piano de acompanhamento com a cifra gospel. A letra aparece uma vez quando as duas vozes cantam junto; quando
 a voz de baixo canta outro texto/ritmo, ela vai para a 2ª linha (ou para a 1ª se a de cima
 estiver calada).
 
