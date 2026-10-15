@@ -9,6 +9,8 @@ Arquivos: `grandes-coisas-leadsheet.musicxml` (abrir no Sibelius) · `previa-lea
 `grandes-coisas-grade.musicxml` (coro SATB + banda) e `grandes-coisas-coro-reduzido.musicxml` +
 `previa-coro-reduzido.pdf` (SATB em 2 pautas: S/A na clave de sol, T/B na clave de fá); gerar todos:
 `python3 gerar_coro.py`
+· `previa-audio.mp3`: prévia de áudio da grade (General MIDI, só para ouvir o escopo); gerar:
+`../../ferramentas/previa_audio.sh grandes-coisas-grade.musicxml previa-audio.mp3 --rit 144 --vel Soprano=105 --vel Contralto=100 --vel Tenor=100 --vel "Baixo (coro)=95" --vel "Teclado (piano)=70" --vel "Órgão (Hammond)=55" --vel Guitarra=60 --vel Baixo=95 --vel Bateria=85`
 · `gerar_leadsheet.py` (gera o lead sheet: `python3 gerar_leadsheet.py`)
 
 Referência de estilo: `docs/estilo-gospel-soul.md` (groove, coro, harmonia, vamp, metais).
