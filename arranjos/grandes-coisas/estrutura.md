@@ -1,6 +1,6 @@
 # Grandes Coisas (Ministério Atitude): versão coro + banda + metais, linha Pop/Black/Soul
 
-Status: **Etapa 3 pronta para revisão**: coro SATB (+ grade completa coro + banda). Ver § 9.
+Status: **Etapa 3 revisada (coro simplificado, 15/10)**: coro SATB (+ grade completa coro + banda). Ver § 9.
 
 Arquivos: `grandes-coisas-leadsheet.musicxml` (abrir no Sibelius) · `previa-leadsheet.pdf`
 (prévia: `python3 ../../ferramentas/previa_pdf.py grandes-coisas-leadsheet.musicxml previa-leadsheet.pdf`)
@@ -321,40 +321,39 @@ do MusicXML 3.1. O Tenor usa clave de sol 8vb.
 a voz de baixo canta outro texto/ritmo, ela vai para a 2ª linha (ou para a 1ª se a de cima
 estiver calada).
 
+### Versão simplificada (15/10)
+Pedido do usuário: SATB, mas bem mais simples (o coro lê um pouco de partitura); Refrão 1 e
+Refrão 2 iguais; dissonância só "aqui e ali".
+
+- **Melodia sempre nas sopranos** (não troca mais de naipe; sem contracanto).
+- **A, T e B sem melisma:** mudam de nota só na sílaba; nos enfeites da melodia ("coi-sas",
+  "mim") seguram a nota. O baixo só troca de nota quando o acorde muda.
+- **Vozes "paradas":** repetir a nota é a escolha preferida; quando mudam, é por passo curto.
+- **Tríade como regra:** A e T cantam fundamental/3ª/5ª; tensões (7ª, 9ª) só na nota longa de
+  "coi-sas" no início das frases do refrão e no acorde final (F6/9).
+- **Refrão 2 (as duas vezes) = cópia exata do Refrão 1** (só o último "mim" da 2ª vez é curto,
+  porque o vamp entra no tempo 1).
+- Nota que atravessa uma troca de acorde (antecipações) usa o acorde que soa por mais tempo e,
+  se possível, uma nota comum aos dois.
+
 ### Texturas
 
 | Seção | S | A | T | B |
 |---|---|---|---|---|
-| Intro | — | — | — | — |
-| Parte 1 | melodia (uníssono com A) | melodia | "Oh" nos finais de verso | "Oh" (fundamental) |
-| Pré-refrão 1 | melodia | harmonia abaixo | harmonia abaixo | entra em "Eu vou cantar" |
-| Refrão 1 / Refrão 2 (1ª) | acima da melodia (ou uníssono nas notas altas) | **melodia** | harmonia abaixo | fundamental |
-| Interlúdio | segura o "mim" | idem | idem | idem |
+| Intro / Interlúdio | — (seguram o "mim" do refrão) | | | |
+| Parte 1 | melodia | melodia (uníssono) | "Oh" nos finais de verso | "Oh" |
+| Pré-refrão 1 | melodia | abaixo | abaixo | entra em "Eu vou cantar" |
+| Refrões 1 e 2 / Pré 2 | melodia | abaixo | abaixo | fundamental |
 | Parte 2 | "Ooh" (pad) | "Ooh" (pad) | melodia 8vb | melodia (uníssono com T) |
-| Pré-refrão 2 | melodia | abaixo | abaixo | fundamental |
-| Refrão 2 (2ª) | contracanto "Oh" agudo (notas longas) | melodia | melodia 8vb | fundamental |
 | Vamp (Mib) c. 1–2 | — | — | melodia 8vb | melodia 15ma abaixo (oitavas com T) |
-| Vamp c. 3–4 | — | melodia | melodia 8vb | idem |
-| Vamp c. 5–6 | melodia | abaixo | melodia 8vb | fundamental |
-| Vamp c. 7–8 / Vamp (Fá) | melodia | abaixo | abaixo | fundamental |
-| Refrão final | melodia | abaixo | abaixo | fundamental |
+| Vamp c. 3–4 | melodia | melodia (uníssono) | idem | idem |
+| Vamp c. 5–8 / Vamp (Fá) / Refrão final / Final | melodia | abaixo | abaixo | fundamental |
 | "To-dos di-rão," / "to-dos di-rão" | mulheres chamam (S melodia, A abaixo) | | homens respondem (T melodia 8vb, B abaixo) | |
-| Final | bloco; acorde final aberto F6/9: Dó5 / Lá4 / Fá4 / Fá3 | | | |
 
-### Como as vozes foram escritas
-- As vozes de harmonia são escolhidas **juntas** a cada nota (e de novo quando o acorde muda
-  sob uma nota longa): sem cruzamento, 3ª do acorde presente, pouca dobra, vozes dentro de
-  uma oitava e movimento mínimo. Notas de passagem da melodia recebem 3ªs/6ªs paralelas.
-- Limites de *belt*: penalidade acima de Mi4 (T), Ré5 (S) e Dó5 (A). Resultado (altura real):
-  **S** Dó4–Fá5 (Fá5 só curto, em "Gran-**des**") · **A** Sib3–Mib5 (Mib5 só na melodia) ·
-  **T** Dó3–Fá4 · **B** Sol2–Sib3.
-- Grafia simplificada para o coro (sem Dób/Fáb/dobrados).
+Extensões (altura real): **S** Dó4–Fá5 (Fá5 só curto) · **A** Lá3–Ré5 · **T** Dó3–Fá4 · **B** Sol2–Sib3.
 
 ### Pontos para revisar (Etapa 3)
-1. **Melodia nas contraltos** nos refrões em Mib (Mib5 no topo, 10 % do refrão); se pesar,
-   dá para trocar e deixar a melodia nas sopranos.
-2. **Respostas da Parte 1** ("Oh") e **contracanto das sopranos** no Refrão 2 (2ª vez) estão em
-   "Oh" para não inventar letra; se quiser respostas com palavras ("Grandes coisas!"), escrevo.
-3. **Vamp:** tenores e baixos em oitavas no início (baixos uma oitava abaixo dos tenores).
-4. As vozes internas são um bom ponto de partida para ensaio; ajustes finos de condução
-   (sobretudo nos tenores) ficam mais fáceis ouvindo no Sibelius.
+1. **Respostas da Parte 1** e pads da Parte 2 estão em "Oh"/"Ooh" (sem inventar letra).
+2. **Vamp:** tenores e baixos em oitavas no início (baixos uma oitava abaixo dos tenores).
+3. Se ainda pesar no ensaio, o próximo passo de simplificação é juntar T+B em uníssono
+   nos refrões (o coro fica a 3 vozes nesses trechos).

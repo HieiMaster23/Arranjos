@@ -151,9 +151,10 @@ def sec(bar):
 
 
 def texture(bar, pos):
-    """Papel de cada voz no instante (bar, pos)."""
+    """Papel de cada voz no instante (bar, pos). Versão simples: melodia sempre na Soprano."""
     title, i, length = sec(bar)
     rest = {"S": None, "A": None, "T": None, "B": None}
+    block = {"S": "mel", "A": "below", "T": "below2", "B": "root"}
     if title in ("Intro",):
         return rest
     if title in ("Parte 1",):
@@ -161,32 +162,23 @@ def texture(bar, pos):
     if title in ("Parte 2",):
         return {"S": "ooh", "A": "ooh", "T": "mel8", "B": "mel8"}
     if title in ("Pré-refrão", "Pré-refrão 2"):
-        bx = "root" if (title == "Pré-refrão 2" or i >= 8) else None
-        return {"S": "mel", "A": "below", "T": "below2", "B": bx}
-    if title in ("Refrão", "Interlúdio"):
-        return {"S": "above", "A": "mel", "T": "below2", "B": "root"}
-    if title == "Refrão 2":
-        if i <= 12:
-            return {"S": "above", "A": "mel", "T": "below2", "B": "root"}
-        return {"S": "desc", "A": "mel", "T": "mel8", "B": "root"}
+        if title == "Pré-refrão" and i < 8:
+            return {"S": "mel", "A": "below", "T": "below2", "B": None}
+        return block
     if title == "Vamp":
-        if i < 2:
+        if i < 2:   # homens: mesmas notas em oitavas
             return {"S": None, "A": None, "T": "mel8", "B": "mel16"}
-        if i < 4:
-            return {"S": None, "A": "mel", "T": "mel8", "B": "mel16"}
-        if i < 6:
-            return {"S": "mel", "A": "below", "T": "mel8", "B": "root"}
-        return {"S": "mel", "A": "below", "T": "below2", "B": "root"}
-    if title in ("Vamp (Fá)", "Preparação", "Final"):
-        return {"S": "mel", "A": "below", "T": "below2", "B": "root"}
+        if i < 4:   # + mulheres em uníssono
+            return {"S": "mel", "A": "mel", "T": "mel8", "B": "mel16"}
+        return block
     if title == "Refrão final":
         t = (i * BAR + pos)
         if 8 * BAR <= t < 8 * BAR + 10:        # "To-dos di-rão," (mulheres chamam)
             return {"S": "mel", "A": "below", "T": None, "B": None}
         if 8 * BAR + 10 <= t < 9 * BAR + 12:   # "to-dos di-rão" (homens respondem)
             return {"S": None, "A": None, "T": "mel8", "B": "below8"}
-        return {"S": "mel", "A": "below", "T": "below2", "B": "root"}
-    return rest
+        return block
+    return block
 
 
 # ------------------------------------------------------------------ geração
@@ -210,71 +202,140 @@ def chord_changes(start, end):
     return pts
 
 
+def syllable_groups(mel):
+    """Agrupa a melodia por sílaba: a nota com sílaba + as notas de melisma seguintes."""
+    groups = []
+    for e in mel:
+        start, dur, m, nm, syl, flags = e
+        if groups and syl == "_" and groups[-1]["end"] == start:
+            groups[-1]["end"] = start + dur
+            groups[-1]["notes"].append(e)
+        else:
+            groups.append({"start": start, "end": start + dur, "m": m, "syl": syl, "notes": [e]})
+    return groups
+
+
+def color_spot(bar, pos):
+    """Onde as vozes internas podem usar tensões (7ª, 9ª): a nota longa de 'coi-sas'
+    no início das frases do refrão. No resto, tríade."""
+    title, i, _l = sec(bar)
+    return title in ("Refrão", "Refrão 2", "Refrão final") and pos == 0 and (i % 13 if title == "Refrão 2" else i) in (0, 4)
+
+
 def harmonize():
+    """Versão simples: as vozes de harmonia mudam só na sílaba (sem melisma), preferem
+    repetir a nota, cantam a tríade (tensão só em color_spot) e não cruzam."""
     ev = {v: [] for v in VOZES}
     prev = {v: None for v in VOZES}
-    slur_open = {v: False for v in VOZES}
-    jsegs = {}
-    mel = melody_events()
-    for start, dur, m, nm, syl, flags in mel:
+    for g in syllable_groups(melody_events()):
+        start, end, m = g["start"], g["end"], g["m"]
         bar0, pos0 = start // BAR + 1, start % BAR
         roles = texture(bar0, pos0)
-        cuts = chord_changes(start, start + dur)
+        # melodia (e dobras de melodia) com o melisma original
         for v in VOZES:
             role = roles[v]
-            if role is None or role in ("oh", "ooh", "desc"):
-                continue
             if role in ("mel", "mel8", "mel16"):
                 down = {"mel": 0, "mel8": 1, "mel16": 2}[role]
-                tm = m - 12 * down
-                s_, a_, o_ = parse_pitch(nm)
-                name = f"{s_}{'b' * -a_ if a_ < 0 else '#' * a_}{o_ - down}"
-                ev[v].append((start, dur, tm, name, syl, flags))
-                prev[v] = tm
-                slur_open[v] = ("(" in flags) or (slur_open[v] and ")" not in flags)
-                continue
-            # vozes harmônicas: recalcula em cada troca de acorde sob a nota
-            if role == "root" or role == "below8":
-                segs = []
-                for k, a in enumerate(cuts):
-                    e = cuts[k + 1] if k + 1 < len(cuts) else start + dur
-                    bb, pp = a // BAR + 1, a % BAR
-                    sym = R.chord_at(bb, pp)
-                    x = bass_of(sym, prev[v]) if role == "root" else \
-                        below(m - 12, sym, bb, prev[v], RANGE["B"][0], RANGE["B"][1])
-                    segs.append((a, e - a, x, spell(x, sym, bb)))
-                    prev[v] = x
-            else:
-                segs = jsegs.setdefault((start, v), None)
-                if segs is None:
-                    sol = joint(start, dur, m, nm, cuts, roles, prev)
-                    for vv, ss in sol.items():
-                        jsegs[(start, vv)] = ss
-                    segs = jsegs[(start, v)]
-                if segs:
-                    prev[v] = segs[-1][2]
-            # junta segmentos iguais (ligadura) e marca melisma nos seguintes
-            merged = []
-            for a, d, x, nmx in segs:
-                if merged and merged[-1][2] == x:
-                    s0, d0, x0, n0 = merged[-1]
-                    merged[-1] = (s0, d0 + d, x0, n0)
+                for (st, du, mm, nm, syl, fl) in g["notes"]:
+                    s_, a_, o_ = parse_pitch(nm)
+                    ev[v].append((st, du, mm - 12 * down, f"{s_}{'b' * -a_ if a_ < 0 else '#' * a_}{o_ - down}", syl, fl))
+                prev[v] = m - 12 * down
+        cuts = chord_changes(start, end)
+        spans = [(R.chord_at(t // BAR + 1, t % BAR), (cuts[k + 1] if k + 1 < len(cuts) else end) - t)
+                 for k, t in enumerate(cuts)]
+        # acorde principal da sílaba = o que soa por mais tempo (resolve as antecipações)
+        sym = max(reversed(spans), key=lambda x: x[1])[0]  # empate: vale o acorde que chega
+        syms = [sym] + [x for x, _d in spans if x != sym]
+        color = color_spot(bar0, pos0)
+        hv = [v for v in ("A", "T") if roles[v] in ("below", "below2")]
+        if hv:
+            sol = choose(m, sym, syms, hv, roles, prev, color)
+            for v, x in sol.items():
+                ev[v].append((start, end - start, x, spell(x, sym, bar0), g["syl"], ""))
+                prev[v] = x
+        if roles["B"] == "root":
+            # o baixo acompanha cada troca de acorde (nota nova sem sílaba sob a sílaba longa)
+            segs = []
+            for k, t in enumerate(cuts):
+                e = cuts[k + 1] if k + 1 < len(cuts) else end
+                sy = R.chord_at(t // BAR + 1, t % BAR)
+                x = bass_of(sy, prev["B"])
+                if segs and segs[-1][2] == x:
+                    segs[-1][1] += e - t
                 else:
-                    merged.append((a, d, x, nmx))
-            # ligadura de expressão: segue a da melodia; só cria uma nova se nenhuma estiver aberta
-            extra = len(merged) > 1 and not slur_open[v] and "(" not in flags and ")" not in flags
-            for k, (a, d, x, nmx) in enumerate(merged):
-                fl = ""
-                if k == 0 and ("(" in flags or extra):
-                    fl += "("
-                if k == len(merged) - 1 and (")" in flags or extra):
-                    fl += ")"
-                ev[v].append((a, d, x, nmx, syl if k == 0 else "_", fl))
-            if "(" in flags:
-                slur_open[v] = True
-            if ")" in flags:
-                slur_open[v] = False
+                    segs.append([t, e - t, x, spell(x, sy, t // BAR + 1)])
+                prev["B"] = x
+            for k, (t, d, x, nm) in enumerate(segs):
+                ev["B"].append((t, d, x, nm, g["syl"] if k == 0 else "_", ""))
+        elif roles["B"] == "below8":
+            x = below(m - 12, sym, bar0, prev["B"], RANGE["B"][0], RANGE["B"][1])
+            ev["B"].append((start, end - start, x, spell(x, sym, bar0), g["syl"], ""))
+            prev["B"] = x
     return ev
+
+
+def choose(m, sym, syms, hv, roles, prev, color):
+    pcs, r, b, *_ = chord_pcs(sym)
+    triad = set(pcs[:3]) | {b}
+    allowed = set(pcs) if color else triad
+    later = [set(chord_pcs(x)[0]) | {chord_pcs(x)[2]} for x in syms[1:]]
+    if later:  # sílaba sobre dois acordes: notas comuns aos dois também valem
+        common = set(pcs).intersection(*later)
+        allowed |= common
+    cands = {}
+    for v in hv:
+        lo, hi = (55, min(m - 1, 74)) if roles[v] == "below" else (48, 65)
+        cands[v] = [x for x in range(lo, hi + 1) if x % 12 in allowed] or [m - 12]
+    best = None
+    for a in cands.get("A", [None]):
+        for t in cands.get("T", [None]):
+            cur = {k: x for k, x in (("A", a), ("T", t)) if x is not None}
+            order = [m] + [cur[k] for k in ("A", "T") if k in cur]
+            if any(lo_ > hi_ for hi_, lo_ in zip(order, order[1:])):
+                continue
+            cost = 0
+            for hi_, lo_ in zip(order, order[1:]):
+                cost += 6 if hi_ == lo_ else 0
+                cost += 8 if hi_ - lo_ > 12 else 0
+            for hi_, lo_ in zip(order, order[1:]):
+                cost += 1.2 * max(0, hi_ - lo_ - 8)   # vozes perto umas das outras (som de bloco)
+            used = [x % 12 for x in order]
+            if pcs[1] not in used:
+                cost += 5                      # falta a 3ª (ou a 4ª do sus)
+            cost += 3 * (len(used) - len(set(used)))
+            for k, x in cur.items():
+                if prev.get(k) is not None:
+                    d = abs(x - prev[k])
+                    cost += 0 if d == 0 else 1.5 * d + 1   # repetir a nota é o mais fácil
+                cost += sum(20 for ch in later if x % 12 not in ch)  # a nota segura precisa caber nos dois acordes
+                if k == "T" and x > 64:
+                    cost += 4 * (x - 64)
+                if k == "A" and x > 72:
+                    cost += 3 * (x - 72)
+                if k == "A" and x < 57:
+                    cost += 2 * (57 - x)
+            if best is None or cost < best[0]:
+                best = (cost, cur)
+    return best[1] if best else {}
+
+
+def same_choruses(ev):
+    """Refrão 2 (as duas vezes) = cópia exata do Refrão 1 nas vozes A, T e B."""
+    r1 = (START["Refrão"] - 2) * BAR + 8                 # anacruse 'Gran-des' (pré, c. 11)
+    r1_end = (START["Interlúdio"] - 1) * BAR + 8          # 'mim' segura até o 3º tempo
+    for k, off_bars in enumerate((START["Refrão 2"] - START["Refrão"], START["Refrão 2"] + 13 - START["Refrão"])):
+        off = off_bars * BAR
+        lim = (START["Vamp"] - 1) * BAR if k == 1 else None
+        for v in ("A", "T", "B"):
+            src = [e for e in ev[v] if r1 <= e[0] < r1_end]
+            ev[v] = [e for e in ev[v] if not (r1 + off <= e[0] < r1_end + off)]
+            for a, d, x, nm, syl, fl in src:
+                if lim is not None and a + off >= lim:
+                    continue
+                if lim is not None:
+                    d = min(d, lim - (a + off))
+                ev[v].append((a + off, d, x, nm, syl, fl))
+            ev[v].sort(key=lambda e: e[0])
 
 
 HARM_ROLES = ("above", "below", "below2")
@@ -465,10 +526,12 @@ def to_measures(events):
 
 
 TXT = {
-    "S": {"Parte 1": "uníssono com as contraltos", "Pré-refrão": "melodia", "Refrão": "acima da melodia",
-          "Parte 2": "\"Ooh\" (pad)", "Vamp": "entra no 5º compasso", "Vamp (Fá)": "melodia, tutti"},
-    "A": {"Parte 1": "melodia (uníssono com as sopranos)", "Refrão": "melodia", "Parte 2": "\"Ooh\" (pad)",
-          "Vamp": "entra no 3º compasso"},
+    "S": {"Parte 1": "melodia (uníssono com as contraltos)", "Pré-refrão": "melodia", "Refrão": "melodia",
+          "Parte 2": "\"Ooh\" (pad)", "Vamp": "entra no 3º compasso (uníssono com as contraltos)",
+          "Vamp (Fá)": "melodia, tutti"},
+    "A": {"Parte 1": "melodia (uníssono com as sopranos)", "Pré-refrão": "abaixo da melodia",
+          "Refrão": "abaixo da melodia", "Parte 2": "\"Ooh\" (pad)",
+          "Vamp": "entra no 3º compasso (uníssono com as sopranos)"},
     "T": {"Parte 1": "respostas", "Parte 2": "melodia 8vb (uníssono com os baixos)", "Vamp": "melodia 8vb"},
     "B": {"Parte 1": "respostas", "Pré-refrão": "entra em \"Eu vou cantar\"", "Parte 2": "melodia (uníssono com os tenores)",
           "Vamp": "melodia (8va abaixo dos tenores)"},
@@ -485,9 +548,9 @@ def choir_parts(sc):
 
 def build_choir():
     ev = harmonize()
+    same_choruses(ev)
     responses(ev)
     pads(ev, ["S", "A"], START["Parte 2"], 16, {"S": (65, 72), "A": (60, 67)}, "Ooh")
-    pads(ev, ["S"], START["Refrão 2"] + 13, 12, {"S": (70, 77)}, "Oh")
     final_chord(ev)
     return ev, {v: to_measures(ev[v]) for v in VOZES}
 
